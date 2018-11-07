@@ -23,103 +23,103 @@ Partial Class Monitor
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Monitor))
-        Me.lblStationName = New System.Windows.Forms.Label()
-        Me.btnPlayedTracks = New System.Windows.Forms.Button()
-        Me.btnDetectedTracks = New System.Windows.Forms.Button()
-        Me.btnSettings = New System.Windows.Forms.Button()
-        Me.btnStop = New System.Windows.Forms.Button()
-        Me.btnStart = New System.Windows.Forms.Button()
+        Me.LblStationName = New System.Windows.Forms.Label()
+        Me.BtnPlayedTracks = New System.Windows.Forms.Button()
+        Me.BtnDetectedTracks = New System.Windows.Forms.Button()
+        Me.BtnSettings = New System.Windows.Forms.Button()
+        Me.BtnStop = New System.Windows.Forms.Button()
+        Me.BtnStart = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ResultLabel5 = New StationMonitor.ResultLabel()
         Me.ResultLabel4 = New StationMonitor.ResultLabel()
         Me.ResultLabel3 = New StationMonitor.ResultLabel()
         Me.ResultLabel2 = New StationMonitor.ResultLabel()
         Me.ResultLabel1 = New StationMonitor.ResultLabel()
-        Me.dxvuCtrl = New NDXVUMeterNET.DXVUMeterNETGDI()
-        Me.rlLockedTrack = New StationMonitor.ResultLabel()
+        Me.DxvuCtrl = New NDXVUMeterNET.DXVUMeterNETGDI()
+        Me.RlLockedTrack = New StationMonitor.ResultLabel()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblStationName
         '
-        Me.lblStationName.AutoSize = True
-        Me.lblStationName.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStationName.Location = New System.Drawing.Point(34, 6)
-        Me.lblStationName.Name = "lblStationName"
-        Me.lblStationName.Size = New System.Drawing.Size(92, 17)
-        Me.lblStationName.TabIndex = 57
-        Me.lblStationName.Text = "Station Name"
-        Me.lblStationName.UseMnemonic = False
+        Me.LblStationName.AutoSize = True
+        Me.LblStationName.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblStationName.Location = New System.Drawing.Point(34, 6)
+        Me.LblStationName.Name = "lblStationName"
+        Me.LblStationName.Size = New System.Drawing.Size(92, 17)
+        Me.LblStationName.TabIndex = 57
+        Me.LblStationName.Text = "Station Name"
+        Me.LblStationName.UseMnemonic = False
         '
         'btnPlayedTracks
         '
-        Me.btnPlayedTracks.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control
-        Me.btnPlayedTracks.FlatAppearance.BorderSize = 0
-        Me.btnPlayedTracks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
-        Me.btnPlayedTracks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnPlayedTracks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPlayedTracks.Image = Global.StationMonitor.My.Resources.Resources.PlayedTracksIcon
-        Me.btnPlayedTracks.Location = New System.Drawing.Point(3, 86)
-        Me.btnPlayedTracks.Name = "btnPlayedTracks"
-        Me.btnPlayedTracks.Size = New System.Drawing.Size(25, 21)
-        Me.btnPlayedTracks.TabIndex = 7
-        Me.btnPlayedTracks.UseVisualStyleBackColor = True
+        Me.BtnPlayedTracks.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control
+        Me.BtnPlayedTracks.FlatAppearance.BorderSize = 0
+        Me.BtnPlayedTracks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
+        Me.BtnPlayedTracks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.BtnPlayedTracks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnPlayedTracks.Image = Global.StationMonitor.My.Resources.Resources.PlayedTracksIcon
+        Me.BtnPlayedTracks.Location = New System.Drawing.Point(3, 86)
+        Me.BtnPlayedTracks.Name = "btnPlayedTracks"
+        Me.BtnPlayedTracks.Size = New System.Drawing.Size(25, 21)
+        Me.BtnPlayedTracks.TabIndex = 7
+        Me.BtnPlayedTracks.UseVisualStyleBackColor = True
         '
         'btnDetectedTracks
         '
-        Me.btnDetectedTracks.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnDetectedTracks.FlatAppearance.BorderSize = 0
-        Me.btnDetectedTracks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
-        Me.btnDetectedTracks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnDetectedTracks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDetectedTracks.Image = CType(resources.GetObject("btnDetectedTracks.Image"), System.Drawing.Image)
-        Me.btnDetectedTracks.Location = New System.Drawing.Point(3, 59)
-        Me.btnDetectedTracks.Name = "btnDetectedTracks"
-        Me.btnDetectedTracks.Size = New System.Drawing.Size(25, 21)
-        Me.btnDetectedTracks.TabIndex = 7
-        Me.btnDetectedTracks.UseVisualStyleBackColor = True
+        Me.BtnDetectedTracks.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnDetectedTracks.FlatAppearance.BorderSize = 0
+        Me.BtnDetectedTracks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
+        Me.BtnDetectedTracks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.BtnDetectedTracks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnDetectedTracks.Image = CType(resources.GetObject("btnDetectedTracks.Image"), System.Drawing.Image)
+        Me.BtnDetectedTracks.Location = New System.Drawing.Point(3, 59)
+        Me.BtnDetectedTracks.Name = "btnDetectedTracks"
+        Me.BtnDetectedTracks.Size = New System.Drawing.Size(25, 21)
+        Me.BtnDetectedTracks.TabIndex = 7
+        Me.BtnDetectedTracks.UseVisualStyleBackColor = True
         '
         'btnSettings
         '
-        Me.btnSettings.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control
-        Me.btnSettings.FlatAppearance.BorderSize = 0
-        Me.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
-        Me.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSettings.Image = Global.StationMonitor.My.Resources.Resources.SettingsIcon
-        Me.btnSettings.Location = New System.Drawing.Point(3, 4)
-        Me.btnSettings.Name = "btnSettings"
-        Me.btnSettings.Size = New System.Drawing.Size(25, 21)
-        Me.btnSettings.TabIndex = 7
-        Me.btnSettings.UseVisualStyleBackColor = True
+        Me.BtnSettings.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control
+        Me.BtnSettings.FlatAppearance.BorderSize = 0
+        Me.BtnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
+        Me.BtnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.BtnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSettings.Image = Global.StationMonitor.My.Resources.Resources.SettingsIcon
+        Me.BtnSettings.Location = New System.Drawing.Point(3, 4)
+        Me.BtnSettings.Name = "btnSettings"
+        Me.BtnSettings.Size = New System.Drawing.Size(25, 21)
+        Me.BtnSettings.TabIndex = 7
+        Me.BtnSettings.UseVisualStyleBackColor = True
         '
         'btnStop
         '
-        Me.btnStop.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnStop.FlatAppearance.BorderColor = System.Drawing.Color.Silver
-        Me.btnStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
-        Me.btnStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnStop.Image = Global.StationMonitor.My.Resources.Resources.StopIcon
-        Me.btnStop.Location = New System.Drawing.Point(489, 23)
-        Me.btnStop.Name = "btnStop"
-        Me.btnStop.Size = New System.Drawing.Size(50, 32)
-        Me.btnStop.TabIndex = 7
-        Me.btnStop.UseVisualStyleBackColor = True
+        Me.BtnStop.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnStop.FlatAppearance.BorderColor = System.Drawing.Color.Silver
+        Me.BtnStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
+        Me.BtnStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.BtnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnStop.Image = Global.StationMonitor.My.Resources.Resources.StopIcon
+        Me.BtnStop.Location = New System.Drawing.Point(489, 23)
+        Me.BtnStop.Name = "btnStop"
+        Me.BtnStop.Size = New System.Drawing.Size(50, 32)
+        Me.BtnStop.TabIndex = 7
+        Me.BtnStop.UseVisualStyleBackColor = True
         '
         'btnStart
         '
-        Me.btnStart.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.Silver
-        Me.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
-        Me.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnStart.Image = Global.StationMonitor.My.Resources.Resources.PlayIcon
-        Me.btnStart.Location = New System.Drawing.Point(433, 23)
-        Me.btnStart.Name = "btnStart"
-        Me.btnStart.Size = New System.Drawing.Size(50, 32)
-        Me.btnStart.TabIndex = 7
-        Me.btnStart.UseVisualStyleBackColor = True
+        Me.BtnStart.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnStart.FlatAppearance.BorderColor = System.Drawing.Color.Silver
+        Me.BtnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
+        Me.BtnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.BtnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnStart.Image = Global.StationMonitor.My.Resources.Resources.PlayIcon
+        Me.BtnStart.Location = New System.Drawing.Point(433, 23)
+        Me.BtnStart.Name = "btnStart"
+        Me.BtnStart.Size = New System.Drawing.Size(50, 32)
+        Me.BtnStart.TabIndex = 7
+        Me.BtnStart.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
@@ -211,86 +211,86 @@ Partial Class Monitor
         '
         'dxvuCtrl
         '
-        Me.dxvuCtrl.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.DxvuCtrl.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dxvuCtrl.BackColor = System.Drawing.Color.Black
-        Me.dxvuCtrl.BitDepth = CType(16, Short)
-        Me.dxvuCtrl.Channels = CType(2, Short)
-        Me.dxvuCtrl.EnableRendering = True
-        Me.dxvuCtrl.FFTDetectDTMF = False
-        Me.dxvuCtrl.FFTHighPrecisionMode = False
-        Me.dxvuCtrl.FFTHistorySize = 4
-        Me.dxvuCtrl.FFTHoldMaxPeaks = False
-        Me.dxvuCtrl.FFTHoldMinPeaks = False
-        Me.dxvuCtrl.FFTLineChannelMode = NDXVUMeterNET.DXVUMeterNETGDI.FFTLineChannelModeConstants.Normal
-        Me.dxvuCtrl.FFTNormalized = True
-        Me.dxvuCtrl.FFTPeaksDecayDelay = 10
-        Me.dxvuCtrl.FFTPeaksDecaySpeed = 20
-        Me.dxvuCtrl.FFTPlotNoiseReduction = 0
-        Me.dxvuCtrl.FFTRenderScales = NDXVUMeterNET.DXVUMeterNETGDI.FFTRenderScalesConstants.None
-        Me.dxvuCtrl.FFTScaleFont = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dxvuCtrl.FFTShowDecay = False
-        Me.dxvuCtrl.FFTShowMinMaxRange = False
-        Me.dxvuCtrl.FFTSize = NDXVUMeterNET.FFT.FFTSizeConstants.FFTs512
-        Me.dxvuCtrl.FFTSmoothing = 0
-        Me.dxvuCtrl.FFTStyle = NDXVUMeterNET.DXVUMeterNETGDI.FFTStyleConstants.Line
-        Me.dxvuCtrl.FFTWindow = NDXVUMeterNET.FFT.FFTWindowConstants.None
-        Me.dxvuCtrl.FFTXMax = 22050
-        Me.dxvuCtrl.FFTXMin = 0
-        Me.dxvuCtrl.FFTXScale = NDXVUMeterNET.DXVUMeterNETGDI.FFTXScaleConstants.Normal
-        Me.dxvuCtrl.FFTXZoom = False
-        Me.dxvuCtrl.FFTXZoomWindowPos = 0
-        Me.dxvuCtrl.FFTYScale = NDXVUMeterNET.DXVUMeterNETGDI.FFTYScaleConstants.dB
-        Me.dxvuCtrl.FFTYScaleMultiplier = 1.0R
-        Me.dxvuCtrl.Frequency = 44100
-        Me.dxvuCtrl.GreenOff = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.dxvuCtrl.GreenOn = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.dxvuCtrl.LeftChannelMute = False
-        Me.dxvuCtrl.LinesThickness = 1
-        Me.dxvuCtrl.Location = New System.Drawing.Point(237, 59)
-        Me.dxvuCtrl.Name = "dxvuCtrl"
-        Me.dxvuCtrl.NoiseFilter = 0
-        Me.dxvuCtrl.NumVUs = CType(32, Short)
-        Me.dxvuCtrl.Orientation = NDXVUMeterNET.DXVUMeterNETGDI.OrientationConstants.Horizontal
-        Me.dxvuCtrl.Overlap = 0.0R
-        Me.dxvuCtrl.PlaybackPosition = CType(0, Long)
-        Me.dxvuCtrl.PlaybackTime = ""
-        Me.dxvuCtrl.PlaybackVolume = CType(0, Short)
-        Me.dxvuCtrl.RedOff = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.dxvuCtrl.RedOn = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.dxvuCtrl.RightChannelMute = False
-        Me.dxvuCtrl.Size = New System.Drawing.Size(302, 102)
-        Me.dxvuCtrl.Style = NDXVUMeterNET.DXVUMeterNETGDI.StyleConstants.FFT
-        Me.dxvuCtrl.TabIndex = 56
-        Me.dxvuCtrl.YellowOff = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.dxvuCtrl.YellowOn = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.BackColor = System.Drawing.Color.Black
+        Me.DxvuCtrl.BitDepth = CType(16, Short)
+        Me.DxvuCtrl.Channels = CType(2, Short)
+        Me.DxvuCtrl.EnableRendering = True
+        Me.DxvuCtrl.FFTDetectDTMF = False
+        Me.DxvuCtrl.FFTHighPrecisionMode = False
+        Me.DxvuCtrl.FFTHistorySize = 4
+        Me.DxvuCtrl.FFTHoldMaxPeaks = False
+        Me.DxvuCtrl.FFTHoldMinPeaks = False
+        Me.DxvuCtrl.FFTLineChannelMode = NDXVUMeterNET.DXVUMeterNETGDI.FFTLineChannelModeConstants.Normal
+        Me.DxvuCtrl.FFTNormalized = True
+        Me.DxvuCtrl.FFTPeaksDecayDelay = 10
+        Me.DxvuCtrl.FFTPeaksDecaySpeed = 20
+        Me.DxvuCtrl.FFTPlotNoiseReduction = 0
+        Me.DxvuCtrl.FFTRenderScales = NDXVUMeterNET.DXVUMeterNETGDI.FFTRenderScalesConstants.None
+        Me.DxvuCtrl.FFTScaleFont = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DxvuCtrl.FFTShowDecay = False
+        Me.DxvuCtrl.FFTShowMinMaxRange = False
+        Me.DxvuCtrl.FFTSize = NDXVUMeterNET.FFT.FFTSizeConstants.FFTs512
+        Me.DxvuCtrl.FFTSmoothing = 0
+        Me.DxvuCtrl.FFTStyle = NDXVUMeterNET.DXVUMeterNETGDI.FFTStyleConstants.Line
+        Me.DxvuCtrl.FFTWindow = NDXVUMeterNET.FFT.FFTWindowConstants.None
+        Me.DxvuCtrl.FFTXMax = 22050
+        Me.DxvuCtrl.FFTXMin = 0
+        Me.DxvuCtrl.FFTXScale = NDXVUMeterNET.DXVUMeterNETGDI.FFTXScaleConstants.Normal
+        Me.DxvuCtrl.FFTXZoom = False
+        Me.DxvuCtrl.FFTXZoomWindowPos = 0
+        Me.DxvuCtrl.FFTYScale = NDXVUMeterNET.DXVUMeterNETGDI.FFTYScaleConstants.dB
+        Me.DxvuCtrl.FFTYScaleMultiplier = 1.0R
+        Me.DxvuCtrl.Frequency = 44100
+        Me.DxvuCtrl.GreenOff = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.GreenOn = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.LeftChannelMute = False
+        Me.DxvuCtrl.LinesThickness = 1
+        Me.DxvuCtrl.Location = New System.Drawing.Point(237, 59)
+        Me.DxvuCtrl.Name = "dxvuCtrl"
+        Me.DxvuCtrl.NoiseFilter = 0
+        Me.DxvuCtrl.NumVUs = CType(32, Short)
+        Me.DxvuCtrl.Orientation = NDXVUMeterNET.DXVUMeterNETGDI.OrientationConstants.Horizontal
+        Me.DxvuCtrl.Overlap = 0.0R
+        Me.DxvuCtrl.PlaybackPosition = CType(0, Long)
+        Me.DxvuCtrl.PlaybackTime = ""
+        Me.DxvuCtrl.PlaybackVolume = CType(0, Short)
+        Me.DxvuCtrl.RedOff = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.RedOn = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.RightChannelMute = False
+        Me.DxvuCtrl.Size = New System.Drawing.Size(302, 102)
+        Me.DxvuCtrl.Style = NDXVUMeterNET.DXVUMeterNETGDI.StyleConstants.FFT
+        Me.DxvuCtrl.TabIndex = 56
+        Me.DxvuCtrl.YellowOff = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.YellowOn = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         '
         'rlLockedTrack
         '
-        Me.rlLockedTrack.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.RlLockedTrack.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.rlLockedTrack.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.rlLockedTrack.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rlLockedTrack.ForeColor = System.Drawing.Color.DimGray
-        Me.rlLockedTrack.Location = New System.Drawing.Point(37, 23)
-        Me.rlLockedTrack.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.rlLockedTrack.Name = "rlLockedTrack"
-        Me.rlLockedTrack.Size = New System.Drawing.Size(390, 32)
-        Me.rlLockedTrack.TabIndex = 60
+        Me.RlLockedTrack.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.RlLockedTrack.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RlLockedTrack.ForeColor = System.Drawing.Color.DimGray
+        Me.RlLockedTrack.Location = New System.Drawing.Point(37, 23)
+        Me.RlLockedTrack.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.RlLockedTrack.Name = "rlLockedTrack"
+        Me.RlLockedTrack.Size = New System.Drawing.Size(390, 32)
+        Me.RlLockedTrack.TabIndex = 60
         '
         'Monitor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.rlLockedTrack)
+        Me.Controls.Add(Me.RlLockedTrack)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.Controls.Add(Me.lblStationName)
-        Me.Controls.Add(Me.btnPlayedTracks)
-        Me.Controls.Add(Me.btnDetectedTracks)
-        Me.Controls.Add(Me.btnSettings)
-        Me.Controls.Add(Me.btnStop)
-        Me.Controls.Add(Me.btnStart)
-        Me.Controls.Add(Me.dxvuCtrl)
+        Me.Controls.Add(Me.LblStationName)
+        Me.Controls.Add(Me.BtnPlayedTracks)
+        Me.Controls.Add(Me.BtnDetectedTracks)
+        Me.Controls.Add(Me.BtnSettings)
+        Me.Controls.Add(Me.BtnStop)
+        Me.Controls.Add(Me.BtnStart)
+        Me.Controls.Add(Me.DxvuCtrl)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MaximumSize = New System.Drawing.Size(4000, 168)
         Me.MinimumSize = New System.Drawing.Size(546, 168)
@@ -302,19 +302,19 @@ Partial Class Monitor
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents btnStart As System.Windows.Forms.Button
-    Friend WithEvents dxvuCtrl As NDXVUMeterNET.DXVUMeterNETGDI
-    Friend WithEvents btnStop As System.Windows.Forms.Button
-    Friend WithEvents lblStationName As System.Windows.Forms.Label
-    Friend WithEvents btnSettings As System.Windows.Forms.Button
-    Friend WithEvents btnDetectedTracks As System.Windows.Forms.Button
-    Friend WithEvents btnPlayedTracks As System.Windows.Forms.Button
-    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents BtnStart As Button
+    Friend WithEvents DxvuCtrl As NDXVUMeterNET.DXVUMeterNETGDI
+    Friend WithEvents BtnStop As Button
+    Friend WithEvents LblStationName As Label
+    Friend WithEvents BtnSettings As Button
+    Friend WithEvents BtnDetectedTracks As Button
+    Friend WithEvents BtnPlayedTracks As Button
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents ResultLabel1 As StationMonitor.ResultLabel
     Friend WithEvents ResultLabel5 As StationMonitor.ResultLabel
     Friend WithEvents ResultLabel4 As StationMonitor.ResultLabel
     Friend WithEvents ResultLabel3 As StationMonitor.ResultLabel
     Friend WithEvents ResultLabel2 As StationMonitor.ResultLabel
-    Friend WithEvents rlLockedTrack As StationMonitor.ResultLabel
+    Friend WithEvents RlLockedTrack As StationMonitor.ResultLabel
 
 End Class

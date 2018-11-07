@@ -32,8 +32,7 @@ Public Class QueuedTracksListView
         Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         Me.SetStyle(ControlStyles.ResizeRedraw, True)
 
-        Me.SmallImageList = New ImageList()
-        Me.SmallImageList.ImageSize = New Size(1, 20)
+        Me.SmallImageList = New ImageList With {.ImageSize = New Size(1, 20)}
     End Sub
 
     <Category("Appearance")>
@@ -115,7 +114,7 @@ Public Class QueuedTracksListView
         End Set
     End Property
 
-    Public Property isBusy() As Boolean
+    Public Property IsBusy() As Boolean
         Get
             Return mIsBusy
         End Get
@@ -173,7 +172,7 @@ Public Class QueuedTracksListView
         Me.Items.Remove(item)
     End Sub
 
-    Protected Overrides Sub OnPaint(ByVal e As System.Windows.Forms.PaintEventArgs)
+    Protected Overrides Sub OnPaint(ByVal e As PaintEventArgs)
         If Not mEnableRendering Then Exit Sub
 
         Dim g As Graphics = e.Graphics
@@ -201,15 +200,9 @@ Public Class QueuedTracksListView
                 itemHeight = Math.Max(itemHeight, item.Bounds.Height)
                 lastY = item.Bounds.Top
 
-                If (itemState And ListViewItemStates.Selected) = ListViewItemStates.Selected Then
-                    itemBackColor = mSelectedItemBackColor
-                Else
-                    If item.BackColor = Me.BackColor Then
-                        itemBackColor = Color.Transparent
-                    Else
-                        itemBackColor = item.BackColor
-                    End If
-                End If
+                itemBackColor = If((itemState And ListViewItemStates.Selected) = ListViewItemStates.Selected,
+                    mSelectedItemBackColor,
+                    If(item.BackColor = Me.BackColor, Color.Transparent, item.BackColor))
                 Dim area As Rectangle = item.Bounds
                 area.Width -= 4
                 area.Height -= 1
@@ -287,7 +280,7 @@ Public Class QueuedTracksListView
         End If
     End Sub
 
-    Protected Overrides Sub OnPaintBackground(ByVal pevent As System.Windows.Forms.PaintEventArgs)
+    Protected Overrides Sub OnPaintBackground(ByVal pevent As PaintEventArgs)
         If Not mEnableRendering Then Exit Sub
 
         pevent.Graphics.Clear(Me.BackColor)
@@ -296,19 +289,19 @@ Public Class QueuedTracksListView
         End If
     End Sub
 
-    Protected Overrides Sub OnDrawItem(ByVal e As System.Windows.Forms.DrawListViewItemEventArgs)
+    Protected Overrides Sub OnDrawItem(ByVal e As DrawListViewItemEventArgs)
         If Not mEnableRendering Then Exit Sub
 
         Me.Invalidate()
     End Sub
 
-    Protected Overrides Sub OnDrawSubItem(ByVal e As System.Windows.Forms.DrawListViewSubItemEventArgs)
+    Protected Overrides Sub OnDrawSubItem(ByVal e As DrawListViewSubItemEventArgs)
         If Not mEnableRendering Then Exit Sub
 
         Me.Invalidate()
     End Sub
 
-    Protected Overrides Sub OnDrawColumnHeader(ByVal e As System.Windows.Forms.DrawListViewColumnHeaderEventArgs)
+    Protected Overrides Sub OnDrawColumnHeader(ByVal e As DrawListViewColumnHeaderEventArgs)
         If Not mEnableRendering Then Exit Sub
 
         MyBase.OnDrawColumnHeader(e)
@@ -327,11 +320,7 @@ Public Class QueuedTracksListView
     <Browsable(False)>
     Public Property SortingColumnIndex() As Integer
         Get
-            If mSortingColumn IsNot Nothing Then
-                Return mSortingColumn.Index
-            Else
-                Return -1
-            End If
+            Return If(mSortingColumn IsNot Nothing, mSortingColumn.Index, -1)
         End Get
         Set(ByVal value As Integer)
             If value >= 0 AndAlso value < Me.Columns.Count Then
@@ -345,27 +334,23 @@ Public Class QueuedTracksListView
         xfxListView_ColumnClick(mSortingColumn, New ColumnClickEventArgs(mSortingColumn.Index))
     End Sub
 
-    Private Sub xfxListView_ColumnClick(ByVal sender As Object, ByVal e As System.Windows.Forms.ColumnClickEventArgs) Handles Me.ColumnClick
+    Private Sub XfxListView_ColumnClick(ByVal sender As Object, ByVal e As ColumnClickEventArgs) Handles Me.ColumnClick
         ' Get the new sorting column.
         Dim newSortingColumn As ColumnHeader = Me.Columns(e.Column)
 
         ' Figure out the new sorting order.
-        Dim sortOrder As System.Windows.Forms.SortOrder
+        Dim sortOrder As SortOrder
         If mSortingColumn Is Nothing Then
             ' New column. Sort ascending.
-            sortOrder = sortOrder.Ascending
+            sortOrder = SortOrder.Ascending
         Else
             ' See if this is the same column.
             If newSortingColumn.Equals(mSortingColumn) Then
                 ' Same column. Switch the sort order.
-                If CInt(mSortingColumn.Tag) = 1 Then
-                    sortOrder = sortOrder.Descending
-                Else
-                    sortOrder = sortOrder.Ascending
-                End If
+                sortOrder = If(CInt(mSortingColumn.Tag) = 1, SortOrder.Descending, SortOrder.Ascending)
             Else
                 ' New column. Sort ascending.
-                sortOrder = sortOrder.Ascending
+                sortOrder = SortOrder.Ascending
             End If
 
             ' Remove the old sort indicator.
@@ -375,11 +360,7 @@ Public Class QueuedTracksListView
 
         ' Display the new sort order.
         mSortingColumn = newSortingColumn
-        If sortOrder = sortOrder.Ascending Then
-            mSortingColumn.Tag = 1
-        Else
-            mSortingColumn.Tag = 0
-        End If
+        mSortingColumn.Tag = If(sortOrder = SortOrder.Ascending, 1, 0)
 
         ' Create a comparer.
         Me.ListViewItemSorter = New ListViewComparer(e.Column, sortOrder)
@@ -388,7 +369,7 @@ Public Class QueuedTracksListView
         Me.Sort()
     End Sub
 
-    Private Sub ListViewPlus_DrawColumnHeader(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawListViewColumnHeaderEventArgs) Handles Me.DrawColumnHeader
+    Private Sub ListViewPlus_DrawColumnHeader(ByVal sender As Object, ByVal e As DrawListViewColumnHeaderEventArgs) Handles Me.DrawColumnHeader
         If Me.HeaderStyle <> ColumnHeaderStyle.None Then
             Dim g As Graphics = e.Graphics
             Dim r As Rectangle = e.Bounds
@@ -454,15 +435,11 @@ Public Class QueuedTracksListView
         End If
     End Sub
 
-    Private Sub ListViewPlus_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawListViewItemEventArgs) Handles Me.DrawItem
+    Private Sub ListViewPlus_DrawItem(ByVal sender As Object, ByVal e As DrawListViewItemEventArgs) Handles Me.DrawItem
         Dim r As Rectangle = e.Item.Bounds
-        Dim itemBackColor As SolidBrush
-
-        If (e.State And ListViewItemStates.Selected) = ListViewItemStates.Selected Then
-            itemBackColor = New SolidBrush(mSelectedItemBackColor)
-        Else
-            itemBackColor = New SolidBrush(e.Item.BackColor)
-        End If
+        Dim itemBackColor = If((e.State And ListViewItemStates.Selected) = ListViewItemStates.Selected,
+            New SolidBrush(mSelectedItemBackColor),
+            New SolidBrush(e.Item.BackColor))
 
         If Me.CheckBoxes Then
             Dim m As Integer = 2
@@ -483,7 +460,7 @@ Public Class QueuedTracksListView
         itemBackColor.Dispose()
     End Sub
 
-    Private Sub ListViewPlus_DrawSubItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawListViewSubItemEventArgs) Handles Me.DrawSubItem
+    Private Sub ListViewPlus_DrawSubItem(ByVal sender As Object, ByVal e As DrawListViewSubItemEventArgs) Handles Me.DrawSubItem
         Dim colIndex As Integer = e.ColumnIndex
         Dim itemBackColor As SolidBrush
 
@@ -492,15 +469,9 @@ Public Class QueuedTracksListView
         If colIndex < 0 Then
             colIndex = Math.Abs(colIndex)
 
-            If (e.ItemState And ListViewItemStates.Selected) = ListViewItemStates.Selected Then
-                itemBackColor = New SolidBrush(mSelectedItemBackColor)
-            Else
-                If e.Item.UseItemStyleForSubItems Then
-                    itemBackColor = New SolidBrush(e.Item.BackColor)
-                Else
-                    itemBackColor = New SolidBrush(e.SubItem.BackColor)
-                End If
-            End If
+            itemBackColor = If((e.ItemState And ListViewItemStates.Selected) = ListViewItemStates.Selected,
+                New SolidBrush(mSelectedItemBackColor),
+                If(e.Item.UseItemStyleForSubItems, New SolidBrush(e.Item.BackColor), New SolidBrush(e.SubItem.BackColor)))
 
             If e.Item.UseItemStyleForSubItems Then
                 DrawItemText(e.Graphics, e.SubItem.Text, e.Item.ForeColor, itemBackColor, e.Item.Font, e.Bounds, colIndex, e.Item)
@@ -513,8 +484,7 @@ Public Class QueuedTracksListView
     End Sub
 
     Private Sub DrawItemText(ByVal g As Graphics, ByVal text As String, ByVal foreColor As Color, ByVal backColor As SolidBrush, ByVal font As Font, ByVal r As Rectangle, ByVal columnIndex As Integer, ByVal item As ListViewItem)
-        Dim sf As StringFormat = New StringFormat
-        sf.FormatFlags = StringFormatFlags.NoWrap
+        Dim sf As StringFormat = New StringFormat With {.FormatFlags = StringFormatFlags.NoWrap}
 
         Dim area As Rectangle = New Rectangle(r.Left + 1,
                                     r.Top,
@@ -547,7 +517,7 @@ Public Class QueuedTracksListView
     Private disableAutoResize As Boolean
     Private delayAutoResize As Threading.Timer = New Threading.Timer(New Threading.TimerCallback(AddressOf AutoResizeFromTimer))
 
-    Private Sub listView_SizeChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.SizeChanged
+    Private Sub ListView_SizeChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.SizeChanged
         If Not mEnableRendering Then Exit Sub
 
         If delayAutoResize IsNot Nothing Then
@@ -583,7 +553,7 @@ Public Class QueuedTracksListView
         End Try
     End Sub
 
-    Private Sub listView_ColumnWidthChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.ColumnWidthChangedEventArgs) Handles Me.ColumnWidthChanged
+    Private Sub ListView_ColumnWidthChanged(ByVal sender As Object, ByVal e As ColumnWidthChangedEventArgs) Handles Me.ColumnWidthChanged
         If Not mEnableRendering Then Exit Sub
 
         If delayAutoResize IsNot Nothing Then
@@ -633,8 +603,8 @@ Public Class QueuedTracksListView
     Private Class ListViewComparer
         Implements IComparer
 
-        Private mColumnNumber As Integer
-        Private mSortOrder As SortOrder
+        Private ReadOnly mColumnNumber As Integer
+        Private ReadOnly mSortOrder As SortOrder
 
         Public Sub New(ByVal columnNumber As Integer, ByVal sortOrder As SortOrder)
             mColumnNumber = columnNumber
@@ -650,17 +620,9 @@ Public Class QueuedTracksListView
             Dim string1 As String
             Dim string2 As String
 
-            If item1.SubItems.Count <= mColumnNumber Then
-                string1 = ""
-            Else
-                string1 = item1.SubItems(mColumnNumber).Text
-            End If
+            string1 = If(item1.SubItems.Count <= mColumnNumber, "", item1.SubItems(mColumnNumber).Text)
 
-            If item2.SubItems.Count <= mColumnNumber Then
-                string2 = ""
-            Else
-                string2 = item2.SubItems(mColumnNumber).Text
-            End If
+            string2 = If(item2.SubItems.Count <= mColumnNumber, "", item2.SubItems(mColumnNumber).Text)
 
             If mSortOrder = SortOrder.Descending Then
                 Dim tmp As String

@@ -22,57 +22,56 @@ Partial Class FingerprintViewer
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.vsbOffset = New System.Windows.Forms.VScrollBar()
-        Me.btnPlay = New System.Windows.Forms.Button()
-        Me.btnStop = New System.Windows.Forms.Button()
+        Me.VsbOffset = New System.Windows.Forms.VScrollBar()
+        Me.BtnPlay = New System.Windows.Forms.Button()
+        Me.BtnStop = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'vsbOffset
         '
-        Me.vsbOffset.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.VsbOffset.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.vsbOffset.Location = New System.Drawing.Point(124, 21)
-        Me.vsbOffset.Maximum = 10
-        Me.vsbOffset.Name = "vsbOffset"
-        Me.vsbOffset.Size = New System.Drawing.Size(17, 219)
-        Me.vsbOffset.TabIndex = 0
+        Me.VsbOffset.Location = New System.Drawing.Point(124, 21)
+        Me.VsbOffset.Maximum = 10
+        Me.VsbOffset.Name = "vsbOffset"
+        Me.VsbOffset.Size = New System.Drawing.Size(17, 219)
+        Me.VsbOffset.TabIndex = 0
         '
         'btnPlay
         '
-        Me.btnPlay.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnPlay.Location = New System.Drawing.Point(0, 276)
-        Me.btnPlay.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnPlay.Name = "btnPlay"
-        Me.btnPlay.Size = New System.Drawing.Size(42, 23)
-        Me.btnPlay.TabIndex = 1
-        Me.btnPlay.Text = "Play"
-        Me.btnPlay.UseVisualStyleBackColor = True
+        Me.BtnPlay.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnPlay.Location = New System.Drawing.Point(0, 276)
+        Me.BtnPlay.Margin = New System.Windows.Forms.Padding(0)
+        Me.BtnPlay.Name = "btnPlay"
+        Me.BtnPlay.Size = New System.Drawing.Size(42, 23)
+        Me.BtnPlay.TabIndex = 1
+        Me.BtnPlay.Text = "Play"
+        Me.BtnPlay.UseVisualStyleBackColor = True
         '
         'btnStop
         '
-        Me.btnStop.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnStop.Location = New System.Drawing.Point(42, 276)
-        Me.btnStop.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnStop.Name = "btnStop"
-        Me.btnStop.Size = New System.Drawing.Size(42, 23)
-        Me.btnStop.TabIndex = 1
-        Me.btnStop.Text = "Stop"
-        Me.btnStop.UseVisualStyleBackColor = True
+        Me.BtnStop.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnStop.Location = New System.Drawing.Point(42, 276)
+        Me.BtnStop.Margin = New System.Windows.Forms.Padding(0)
+        Me.BtnStop.Name = "btnStop"
+        Me.BtnStop.Size = New System.Drawing.Size(42, 23)
+        Me.BtnStop.TabIndex = 1
+        Me.BtnStop.Text = "Stop"
+        Me.BtnStop.UseVisualStyleBackColor = True
         '
         'FingerprintViewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.btnStop)
-        Me.Controls.Add(Me.btnPlay)
-        Me.Controls.Add(Me.vsbOffset)
+        Me.Controls.Add(Me.BtnStop)
+        Me.Controls.Add(Me.BtnPlay)
+        Me.Controls.Add(Me.VsbOffset)
         Me.Name = "FingerprintViewer"
         Me.Size = New System.Drawing.Size(161, 299)
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents vsbOffset As System.Windows.Forms.VScrollBar
-    Friend WithEvents btnPlay As System.Windows.Forms.Button
-    Friend WithEvents btnStop As System.Windows.Forms.Button
-
+    Friend WithEvents VsbOffset As Windows.Forms.VScrollBar
+    Friend WithEvents BtnPlay As Windows.Forms.Button
+    Friend WithEvents BtnStop As Windows.Forms.Button
 End Class

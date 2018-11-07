@@ -66,7 +66,7 @@ Partial Class ResultLabel
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents lblTrack As System.Windows.Forms.Label
-    Friend WithEvents lblPercentage As System.Windows.Forms.Label
+    Friend WithEvents lblTrack As Label
+    Friend WithEvents lblPercentage As Label
 
 End Class

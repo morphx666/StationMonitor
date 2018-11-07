@@ -22,83 +22,83 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lvStations = New System.Windows.Forms.ListView()
-        Me.stNameCol = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.stFrequencyCol = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.stCityCol = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnEdit = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.LvStations = New System.Windows.Forms.ListView()
+        Me.StNameCol = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.StFrequencyCol = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.StCityCol = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.BtnAdd = New System.Windows.Forms.Button()
+        Me.BtnEdit = New System.Windows.Forms.Button()
+        Me.BtnDelete = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lvStations
         '
-        Me.lvStations.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.LvStations.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lvStations.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.stNameCol, Me.stFrequencyCol, Me.stCityCol})
-        Me.lvStations.FullRowSelect = True
-        Me.lvStations.GridLines = True
-        Me.lvStations.HideSelection = False
-        Me.lvStations.Location = New System.Drawing.Point(14, 14)
-        Me.lvStations.Name = "lvStations"
-        Me.lvStations.Size = New System.Drawing.Size(700, 498)
-        Me.lvStations.TabIndex = 0
-        Me.lvStations.UseCompatibleStateImageBehavior = False
-        Me.lvStations.View = System.Windows.Forms.View.Details
+        Me.LvStations.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.StNameCol, Me.StFrequencyCol, Me.StCityCol})
+        Me.LvStations.FullRowSelect = True
+        Me.LvStations.GridLines = True
+        Me.LvStations.HideSelection = False
+        Me.LvStations.Location = New System.Drawing.Point(14, 14)
+        Me.LvStations.Name = "lvStations"
+        Me.LvStations.Size = New System.Drawing.Size(700, 498)
+        Me.LvStations.TabIndex = 0
+        Me.LvStations.UseCompatibleStateImageBehavior = False
+        Me.LvStations.View = System.Windows.Forms.View.Details
         '
         'stNameCol
         '
-        Me.stNameCol.Text = "Name"
+        Me.StNameCol.Text = "Name"
         '
         'stFrequencyCol
         '
-        Me.stFrequencyCol.Text = "Frequency"
-        Me.stFrequencyCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.StFrequencyCol.Text = "Frequency"
+        Me.StFrequencyCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'stCityCol
         '
-        Me.stCityCol.Text = "City"
+        Me.StCityCol.Text = "City"
         '
         'btnAdd
         '
-        Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAdd.Location = New System.Drawing.Point(722, 14)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(87, 27)
-        Me.btnAdd.TabIndex = 1
-        Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = True
+        Me.BtnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnAdd.Location = New System.Drawing.Point(722, 14)
+        Me.BtnAdd.Name = "btnAdd"
+        Me.BtnAdd.Size = New System.Drawing.Size(87, 27)
+        Me.BtnAdd.TabIndex = 1
+        Me.BtnAdd.Text = "Add"
+        Me.BtnAdd.UseVisualStyleBackColor = True
         '
         'btnEdit
         '
-        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEdit.Location = New System.Drawing.Point(722, 47)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(87, 27)
-        Me.btnEdit.TabIndex = 2
-        Me.btnEdit.Text = "Edit"
-        Me.btnEdit.UseVisualStyleBackColor = True
+        Me.BtnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnEdit.Location = New System.Drawing.Point(722, 47)
+        Me.BtnEdit.Name = "btnEdit"
+        Me.BtnEdit.Size = New System.Drawing.Size(87, 27)
+        Me.BtnEdit.TabIndex = 2
+        Me.BtnEdit.Text = "Edit"
+        Me.BtnEdit.UseVisualStyleBackColor = True
         '
         'btnDelete
         '
-        Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDelete.Location = New System.Drawing.Point(722, 81)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(87, 27)
-        Me.btnDelete.TabIndex = 3
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.UseVisualStyleBackColor = True
+        Me.BtnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnDelete.Location = New System.Drawing.Point(722, 81)
+        Me.BtnDelete.Name = "btnDelete"
+        Me.BtnDelete.Size = New System.Drawing.Size(87, 27)
+        Me.BtnDelete.TabIndex = 3
+        Me.BtnDelete.Text = "Delete"
+        Me.BtnDelete.UseVisualStyleBackColor = True
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(824, 526)
-        Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.btnEdit)
-        Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.lvStations)
+        Me.Controls.Add(Me.BtnDelete)
+        Me.Controls.Add(Me.BtnEdit)
+        Me.Controls.Add(Me.BtnAdd)
+        Me.Controls.Add(Me.LvStations)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "MainForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
@@ -106,11 +106,11 @@ Partial Class MainForm
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents lvStations As System.Windows.Forms.ListView
-    Friend WithEvents stNameCol As System.Windows.Forms.ColumnHeader
-    Friend WithEvents stFrequencyCol As System.Windows.Forms.ColumnHeader
-    Friend WithEvents stCityCol As System.Windows.Forms.ColumnHeader
-    Friend WithEvents btnAdd As System.Windows.Forms.Button
-    Friend WithEvents btnEdit As System.Windows.Forms.Button
-    Friend WithEvents btnDelete As System.Windows.Forms.Button
+    Friend WithEvents LvStations As ListView
+    Friend WithEvents StNameCol As ColumnHeader
+    Friend WithEvents StFrequencyCol As ColumnHeader
+    Friend WithEvents StCityCol As ColumnHeader
+    Friend WithEvents BtnAdd As Button
+    Friend WithEvents BtnEdit As Button
+    Friend WithEvents BtnDelete As Button
 End Class

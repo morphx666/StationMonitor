@@ -8,7 +8,7 @@ Public Class ResultLabel
 
     Private delayUpdateTimer As New Timer(Sub() Me.Invoke(New MethodInvoker(AddressOf UpdateUI)), Nothing, Timeout.Infinite, Timeout.Infinite)
 
-    Private Sub ResultLabel_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+    Private Sub ResultLabel_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         Me.SetStyle(ControlStyles.Selectable, True)
         Me.SetStyle(ControlStyles.ResizeRedraw, True)
@@ -87,7 +87,7 @@ Public Class ResultLabel
         End Set
     End Property
 
-    Private Sub ResultLabel_Paint(sender As Object, e As System.Windows.Forms.PaintEventArgs) Handles Me.Paint
+    Private Sub ResultLabel_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
         Dim g = e.Graphics
         Dim r = Me.DisplayRectangle
         r.Width -= 1

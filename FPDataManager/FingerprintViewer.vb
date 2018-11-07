@@ -32,15 +32,8 @@ Public Class FingerprintViewer
         Me.SetStyle(ControlStyles.ResizeRedraw, True)
         Me.SetStyle(ControlStyles.UserPaint, True)
 
-        AddHandler DoubleClick, Sub()
-                                    If Mode = Modes.CeptralCoeficients Then
-                                        Mode = Modes.Hashes
-                                    Else
-                                        Mode = Modes.CeptralCoeficients
-                                    End If
-                                End Sub
-
-        AddHandler Resize, Sub() SetupUI()
+        AddHandler DoubleClick, Sub() Mode = If(Mode = Modes.CeptralCoeficients, Modes.Hashes, Modes.CeptralCoeficients)
+        AddHandler Resize, AddressOf SetupUI
 
         SetupUI()
     End Sub
@@ -58,11 +51,11 @@ Public Class FingerprintViewer
 
     Public Property ShowPlayStopButtons As Boolean
         Get
-            Return btnPlay.Visible
+            Return BtnPlay.Visible
         End Get
         Set(value As Boolean)
-            btnPlay.Visible = value
-            btnStop.Visible = value
+            BtnPlay.Visible = value
+            BtnStop.Visible = value
 
             SetupUI()
         End Set
@@ -88,7 +81,7 @@ Public Class FingerprintViewer
         End Set
     End Property
 
-    Protected Overrides Sub OnPaintBackground(e As System.Windows.Forms.PaintEventArgs)
+    Protected Overrides Sub OnPaintBackground(e As PaintEventArgs)
         'MyBase.OnPaintBackground(e)
     End Sub
 
@@ -111,10 +104,10 @@ Public Class FingerprintViewer
                                                           Next
                                                       End If
 
-                                                      If hashIndex >= vsbOffset.Value + vsbOffset.LargeChange \ 2 Then
-                                                          vsbOffset.Value = Math.Min(vsbOffset.Maximum, hashIndex - vsbOffset.LargeChange \ 2)
-                                                      ElseIf hashIndex < vsbOffset.Value Then
-                                                          vsbOffset.Value = hashIndex
+                                                      If hashIndex >= VsbOffset.Value + VsbOffset.LargeChange \ 2 Then
+                                                          VsbOffset.Value = Math.Min(VsbOffset.Maximum, hashIndex - VsbOffset.LargeChange \ 2)
+                                                      ElseIf hashIndex < VsbOffset.Value Then
+                                                          VsbOffset.Value = hashIndex
                                                       End If
 
                                                       Me.Invalidate()
@@ -172,49 +165,43 @@ Public Class FingerprintViewer
         End Get
         Set(value As Integer)
             hashIndex = value
-
-            If value >= vsbOffset.Minimum AndAlso value <= vsbOffset.Maximum Then
-                vsbOffset.Value = hashIndex
-            Else
-                vsbOffset.Value = 0
-            End If
-
+            VsbOffset.Value = If(value >= VsbOffset.Minimum AndAlso value <= VsbOffset.Maximum, hashIndex, 0)
             Me.Invalidate()
         End Set
     End Property
 
     Private Sub SetupUI()
-        btnPlay.Enabled = mTrack IsNot Nothing
-        btnStop.Enabled = mTrack IsNot Nothing
+        BtnPlay.Enabled = mTrack IsNot Nothing
+        BtnStop.Enabled = mTrack IsNot Nothing
 
-        btnPlay.Top = Me.Height - btnPlay.Height
-        btnStop.Top = Me.Height - btnPlay.Height
+        BtnPlay.Top = Me.Height - BtnPlay.Height
+        BtnStop.Top = Me.Height - BtnPlay.Height
 
-        vsbOffset.Left = Me.Width - vsbOffset.Width
-        vsbOffset.Top = 0
-        vsbOffset.Height = Me.Height - If(btnPlay.Visible, btnPlay.Height, 0)
+        VsbOffset.Left = Me.Width - VsbOffset.Width
+        VsbOffset.Top = 0
+        VsbOffset.Height = Me.Height - If(BtnPlay.Visible, BtnPlay.Height, 0)
 
         fpRect = Me.DisplayRectangle
-        fpRect.Width -= vsbOffset.Width + 1
-        fpRect.Height -= If(btnPlay.Visible, btnPlay.Height, 0) + 1
+        fpRect.Width -= VsbOffset.Width + 1
+        fpRect.Height -= If(BtnPlay.Visible, BtnPlay.Height, 0) + 1
 
         dotSize = Math.Floor(fpRect.Width / mHashBands)
         hashesPerPage = (fpRect.Height / dotSize)
 
-        vsbOffset.Enabled = mHashes.Length > hashesPerPage
-        vsbOffset.LargeChange = hashesPerPage
+        VsbOffset.Enabled = mHashes.Length > hashesPerPage
+        VsbOffset.LargeChange = hashesPerPage
     End Sub
 
     Private Sub ResetUI()
         SetupUI()
-        vsbOffset.Value = 0
-        vsbOffset.Maximum = mHashes.Length
-        vsbOffset.SmallChange = 1
+        VsbOffset.Value = 0
+        VsbOffset.Maximum = mHashes.Length
+        VsbOffset.SmallChange = 1
 
         Me.Invalidate()
     End Sub
 
-    Private Sub FingerprintViewer_Paint(sender As Object, e As System.Windows.Forms.PaintEventArgs) Handles Me.Paint
+    Private Sub FingerprintViewer_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
         Dim g As Graphics = e.Graphics
 
         g.Clear(Color.White)
@@ -252,7 +239,7 @@ Public Class FingerprintViewer
                 Case Modes.Hashes
                     Dim binaryHash As String
 
-                    For i As Integer = vsbOffset.Value To mHashes.Length - 1
+                    For i As Integer = VsbOffset.Value To mHashes.Length - 1
                         binaryHash = Convert.ToString(mHashes(i).HashValue, 2).PadLeft(mHashBands, "0")
 
                         'Debug.WriteLine(binaryHash)
@@ -273,10 +260,10 @@ Public Class FingerprintViewer
                     Dim barWidth As Integer = Math.Floor(r.Width / HashLib.NumOfMelBands)
                     Dim barHeight As Single
                     Dim maxValue As Double = (From h In mHashes Select h.CeptralCoeficients.Max()).Max() / 2
-                    Dim index As Integer = If(hashIndex = -1, vsbOffset.Value, hashIndex)
+                    Dim index As Integer = If(hashIndex = -1, VsbOffset.Value, hashIndex)
                     For i As Integer = 0 To HashLib.NumOfMelBands - 1
                         barHeight = Math.Abs(mHashes(index).CeptralCoeficients(i) / maxValue * rh2)
-                        If mHashes(vsbOffset.Value).CeptralCoeficients(i) > 0 Then
+                        If mHashes(VsbOffset.Value).CeptralCoeficients(i) > 0 Then
                             g.FillRectangle(Brushes.Black, r.X + i * barWidth, rh2 - barHeight, barWidth - 1, barHeight)
                         Else
                             g.FillRectangle(Brushes.Black, r.X + i * barWidth, rh2, barWidth - 1, barHeight)
@@ -286,14 +273,14 @@ Public Class FingerprintViewer
         End If
     End Sub
 
-    Private Sub vsbOffset_Scroll(sender As System.Object, e As System.Windows.Forms.ScrollEventArgs) Handles vsbOffset.Scroll
+    Private Sub VsbOffset_Scroll(sender As Object, e As ScrollEventArgs) Handles VsbOffset.Scroll
         Me.Invalidate()
     End Sub
 
     Public Sub Play()
         If mHashDataLib IsNot Nothing Then
             hashIndex = 0
-            vsbOffset.Value = 0
+            VsbOffset.Value = 0
             Me.Invalidate()
 
             mHashDataLib.StartPlayback(mTrack.FileName)
@@ -303,22 +290,22 @@ Public Class FingerprintViewer
     Public Sub [Stop]()
         If mHashDataLib IsNot Nothing Then
             hashIndex = -1
-            vsbOffset.Value = 0
+            VsbOffset.Value = 0
             Me.Invalidate()
 
             mHashDataLib.StopPlayback()
         End If
     End Sub
 
-    Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
+    Private Sub BtnPlay_Click(sender As Object, e As EventArgs) Handles BtnPlay.Click
         Play()
     End Sub
 
-    Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
+    Private Sub BtnStop_Click(sender As Object, e As EventArgs) Handles BtnStop.Click
         Me.Stop()
     End Sub
 
-    Private Sub FingerprintViewer_SizeChanged(sender As Object, e As System.EventArgs) Handles Me.SizeChanged
+    Private Sub FingerprintViewer_SizeChanged(sender As Object, e As EventArgs) Handles Me.SizeChanged
         SetupUI()
     End Sub
 End Class

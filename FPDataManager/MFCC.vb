@@ -4,23 +4,23 @@ Imports NDXVUMeterNET
 Imports DotNetMatrix
 
 Public Class MFCC
-    Private windowSize As Integer
-    Private windowSize2 As Integer
-    Private sampleRate As Integer
-    Private baseFreq As Integer
+    Private ReadOnly windowSize As Integer
+    Private ReadOnly windowSize2 As Integer
+    Private ReadOnly sampleRate As Integer
+    Private ReadOnly baseFreq As Integer
 
-    Private minFreq As Double
-    Private maxFreq As Double
+    Private ReadOnly minFreq As Double
+    Private ReadOnly maxFreq As Double
     Private numberFilters As Integer
 
-    Private numberCoefficients As Integer
-    Private useFirstCoefficient As Boolean
+    Private ReadOnly numberCoefficients As Integer
+    Private ReadOnly useFirstCoefficient As Boolean
 
     Private dctMatrix As GeneralMatrix
     Private melFilterBanks As GeneralMatrix
-    Private scale As Double
+    Private ReadOnly scale As Double
 
-    Private log10 As Double
+    Private ReadOnly log10 As Double
 
     Public Sub New(sampleRate As Integer)
         Me.New(sampleRate, FFT.FFTSizeConstants.FFTs512, 20, True, 20.0, 16000.0, 40)

@@ -22,61 +22,61 @@ Partial Class MonitorSetup
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.cbStation = New System.Windows.Forms.ComboBox()
-        Me.tbSamplingTime = New System.Windows.Forms.TrackBar()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
+        Me.CbStation = New System.Windows.Forms.ComboBox()
+        Me.TbSamplingTime = New System.Windows.Forms.TrackBar()
+        Me.BtnCancel = New System.Windows.Forms.Button()
+        Me.BtnSave = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.rbRight = New System.Windows.Forms.RadioButton()
-        Me.rbLeft = New System.Windows.Forms.RadioButton()
-        Me.cbChannelMode = New System.Windows.Forms.ComboBox()
-        Me.cbSources = New System.Windows.Forms.ComboBox()
-        Me.cbDevices = New System.Windows.Forms.ComboBox()
+        Me.RbRight = New System.Windows.Forms.RadioButton()
+        Me.RbLeft = New System.Windows.Forms.RadioButton()
+        Me.CbChannelMode = New System.Windows.Forms.ComboBox()
+        Me.CbSources = New System.Windows.Forms.ComboBox()
+        Me.CbDevices = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.tbVolume = New NMixerProNET.VolumeFader()
+        Me.TbVolume = New NMixerProNET.VolumeFader()
         Me.Label5 = New System.Windows.Forms.Label()
-        CType(Me.tbSamplingTime, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tbVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TbSamplingTime, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TbVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cbStation
         '
-        Me.cbStation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbStation.FormattingEnabled = True
-        Me.cbStation.Location = New System.Drawing.Point(108, 14)
-        Me.cbStation.Name = "cbStation"
-        Me.cbStation.Size = New System.Drawing.Size(180, 23)
-        Me.cbStation.TabIndex = 0
+        Me.CbStation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CbStation.FormattingEnabled = True
+        Me.CbStation.Location = New System.Drawing.Point(108, 14)
+        Me.CbStation.Name = "cbStation"
+        Me.CbStation.Size = New System.Drawing.Size(180, 23)
+        Me.CbStation.TabIndex = 0
         '
         'tbSamplingTime
         '
-        Me.tbSamplingTime.BackColor = System.Drawing.SystemColors.Control
-        Me.tbSamplingTime.Location = New System.Drawing.Point(108, 114)
-        Me.tbSamplingTime.Minimum = 1
-        Me.tbSamplingTime.Name = "tbSamplingTime"
-        Me.tbSamplingTime.Size = New System.Drawing.Size(353, 45)
-        Me.tbSamplingTime.TabIndex = 4
-        Me.tbSamplingTime.Value = 3
+        Me.TbSamplingTime.BackColor = System.Drawing.SystemColors.Control
+        Me.TbSamplingTime.Location = New System.Drawing.Point(108, 114)
+        Me.TbSamplingTime.Minimum = 1
+        Me.TbSamplingTime.Name = "tbSamplingTime"
+        Me.TbSamplingTime.Size = New System.Drawing.Size(353, 45)
+        Me.TbSamplingTime.TabIndex = 4
+        Me.TbSamplingTime.Value = 3
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(377, 241)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(85, 30)
-        Me.btnCancel.TabIndex = 62
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
+        Me.BtnCancel.Location = New System.Drawing.Point(377, 241)
+        Me.BtnCancel.Name = "btnCancel"
+        Me.BtnCancel.Size = New System.Drawing.Size(85, 30)
+        Me.BtnCancel.TabIndex = 62
+        Me.BtnCancel.Text = "Cancel"
+        Me.BtnCancel.UseVisualStyleBackColor = True
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(285, 242)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(85, 30)
-        Me.btnSave.TabIndex = 61
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.BtnSave.Location = New System.Drawing.Point(285, 242)
+        Me.BtnSave.Name = "btnSave"
+        Me.BtnSave.Size = New System.Drawing.Size(85, 30)
+        Me.BtnSave.TabIndex = 61
+        Me.BtnSave.Text = "Save"
+        Me.BtnSave.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -89,55 +89,55 @@ Partial Class MonitorSetup
         '
         'rbRight
         '
-        Me.rbRight.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rbRight.Location = New System.Drawing.Point(383, 76)
-        Me.rbRight.Name = "rbRight"
-        Me.rbRight.Size = New System.Drawing.Size(79, 27)
-        Me.rbRight.TabIndex = 60
-        Me.rbRight.Text = "Right"
-        Me.rbRight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.rbRight.UseVisualStyleBackColor = True
+        Me.RbRight.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RbRight.Location = New System.Drawing.Point(383, 76)
+        Me.RbRight.Name = "rbRight"
+        Me.RbRight.Size = New System.Drawing.Size(79, 27)
+        Me.RbRight.TabIndex = 60
+        Me.RbRight.Text = "Right"
+        Me.RbRight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.RbRight.UseVisualStyleBackColor = True
         '
         'rbLeft
         '
-        Me.rbLeft.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rbLeft.Checked = True
-        Me.rbLeft.Location = New System.Drawing.Point(299, 76)
-        Me.rbLeft.Name = "rbLeft"
-        Me.rbLeft.Size = New System.Drawing.Size(79, 27)
-        Me.rbLeft.TabIndex = 60
-        Me.rbLeft.TabStop = True
-        Me.rbLeft.Text = "Left"
-        Me.rbLeft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.rbLeft.UseVisualStyleBackColor = True
+        Me.RbLeft.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RbLeft.Checked = True
+        Me.RbLeft.Location = New System.Drawing.Point(299, 76)
+        Me.RbLeft.Name = "rbLeft"
+        Me.RbLeft.Size = New System.Drawing.Size(79, 27)
+        Me.RbLeft.TabIndex = 60
+        Me.RbLeft.TabStop = True
+        Me.RbLeft.Text = "Left"
+        Me.RbLeft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.RbLeft.UseVisualStyleBackColor = True
         '
         'cbChannelMode
         '
-        Me.cbChannelMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbChannelMode.FormattingEnabled = True
-        Me.cbChannelMode.Items.AddRange(New Object() {"Single", "Dual"})
-        Me.cbChannelMode.Location = New System.Drawing.Point(299, 45)
-        Me.cbChannelMode.Name = "cbChannelMode"
-        Me.cbChannelMode.Size = New System.Drawing.Size(163, 23)
-        Me.cbChannelMode.TabIndex = 59
+        Me.CbChannelMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CbChannelMode.FormattingEnabled = True
+        Me.CbChannelMode.Items.AddRange(New Object() {"Single", "Dual"})
+        Me.CbChannelMode.Location = New System.Drawing.Point(299, 45)
+        Me.CbChannelMode.Name = "cbChannelMode"
+        Me.CbChannelMode.Size = New System.Drawing.Size(163, 23)
+        Me.CbChannelMode.TabIndex = 59
         '
         'cbSources
         '
-        Me.cbSources.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbSources.FormattingEnabled = True
-        Me.cbSources.Location = New System.Drawing.Point(108, 76)
-        Me.cbSources.Name = "cbSources"
-        Me.cbSources.Size = New System.Drawing.Size(180, 23)
-        Me.cbSources.TabIndex = 3
+        Me.CbSources.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CbSources.FormattingEnabled = True
+        Me.CbSources.Location = New System.Drawing.Point(108, 76)
+        Me.CbSources.Name = "cbSources"
+        Me.CbSources.Size = New System.Drawing.Size(180, 23)
+        Me.CbSources.TabIndex = 3
         '
         'cbDevices
         '
-        Me.cbDevices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbDevices.FormattingEnabled = True
-        Me.cbDevices.Location = New System.Drawing.Point(108, 45)
-        Me.cbDevices.Name = "cbDevices"
-        Me.cbDevices.Size = New System.Drawing.Size(180, 23)
-        Me.cbDevices.TabIndex = 2
+        Me.CbDevices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CbDevices.FormattingEnabled = True
+        Me.CbDevices.Location = New System.Drawing.Point(108, 45)
+        Me.CbDevices.Name = "cbDevices"
+        Me.CbDevices.Size = New System.Drawing.Size(180, 23)
+        Me.CbDevices.TabIndex = 2
         '
         'Label2
         '
@@ -168,14 +168,14 @@ Partial Class MonitorSetup
         '
         'tbVolume
         '
-        Me.tbVolume.CoreAudioControl = Nothing
-        Me.tbVolume.IntegralChanges = True
-        Me.tbVolume.Location = New System.Drawing.Point(94, 182)
-        Me.tbVolume.Name = "tbVolume"
-        Me.tbVolume.PeakLevel = 0
-        Me.tbVolume.Size = New System.Drawing.Size(380, 45)
-        Me.tbVolume.TabIndex = 63
-        Me.tbVolume.TickStyle = System.Windows.Forms.TickStyle.TopLeft
+        Me.TbVolume.CoreAudioControl = Nothing
+        Me.TbVolume.IntegralChanges = True
+        Me.TbVolume.Location = New System.Drawing.Point(94, 182)
+        Me.TbVolume.Name = "tbVolume"
+        Me.TbVolume.PeakLevel = 0
+        Me.TbVolume.Size = New System.Drawing.Size(380, 45)
+        Me.TbVolume.TabIndex = 63
+        Me.TbVolume.TickStyle = System.Windows.Forms.TickStyle.TopLeft
         '
         'Label5
         '
@@ -192,44 +192,44 @@ Partial Class MonitorSetup
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(477, 286)
         Me.ControlBox = False
-        Me.Controls.Add(Me.tbVolume)
-        Me.Controls.Add(Me.cbStation)
-        Me.Controls.Add(Me.tbSamplingTime)
+        Me.Controls.Add(Me.TbVolume)
+        Me.Controls.Add(Me.CbStation)
+        Me.Controls.Add(Me.TbSamplingTime)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.btnCancel)
+        Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.BtnSave)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.cbDevices)
-        Me.Controls.Add(Me.rbRight)
-        Me.Controls.Add(Me.cbSources)
-        Me.Controls.Add(Me.rbLeft)
-        Me.Controls.Add(Me.cbChannelMode)
+        Me.Controls.Add(Me.CbDevices)
+        Me.Controls.Add(Me.RbRight)
+        Me.Controls.Add(Me.CbSources)
+        Me.Controls.Add(Me.RbLeft)
+        Me.Controls.Add(Me.CbChannelMode)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "MonitorSetup"
         Me.Text = "Monitor Setup"
-        CType(Me.tbSamplingTime, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.tbVolume, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TbSamplingTime, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TbVolume, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents cbStation As System.Windows.Forms.ComboBox
-    Friend WithEvents tbSamplingTime As System.Windows.Forms.TrackBar
-    Friend WithEvents btnCancel As System.Windows.Forms.Button
-    Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents rbRight As System.Windows.Forms.RadioButton
-    Friend WithEvents rbLeft As System.Windows.Forms.RadioButton
-    Friend WithEvents cbChannelMode As System.Windows.Forms.ComboBox
-    Friend WithEvents cbSources As System.Windows.Forms.ComboBox
-    Friend WithEvents cbDevices As System.Windows.Forms.ComboBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents tbVolume As NMixerProNET.VolumeFader
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents CbStation As ComboBox
+    Friend WithEvents TbSamplingTime As TrackBar
+    Friend WithEvents BtnCancel As Button
+    Friend WithEvents BtnSave As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents RbRight As RadioButton
+    Friend WithEvents RbLeft As RadioButton
+    Friend WithEvents CbChannelMode As ComboBox
+    Friend WithEvents CbSources As ComboBox
+    Friend WithEvents CbDevices As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TbVolume As NMixerProNET.VolumeFader
+    Friend WithEvents Label5 As Label
 End Class

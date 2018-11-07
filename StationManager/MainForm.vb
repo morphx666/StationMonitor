@@ -1,12 +1,12 @@
 ﻿Imports FPDataManager
 
 Public Class MainForm
-    Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         fpdata = New DataManager()
         LoadStations()
     End Sub
 
-    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         Using frm = New StationEditorForm()
             frm.StationID = -1
             If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then LoadStations()
@@ -15,14 +15,14 @@ Public Class MainForm
 
     Private Sub LoadStations()
         Dim selID As Integer = -1
-        If lvStations.SelectedItems.Count = 1 Then
-            selID = CType(lvStations.SelectedItems(0).Tag, Station).ID
+        If LvStations.SelectedItems.Count = 1 Then
+            selID = CType(LvStations.SelectedItems(0).Tag, Station).ID
         End If
 
-        lvStations.Items.Clear()
+        LvStations.Items.Clear()
 
         For Each s In fpdata.Data.Stations
-            Dim item As ListViewItem = lvStations.Items.Add(s.Name)
+            Dim item As ListViewItem = LvStations.Items.Add(s.Name)
             With item
                 .SubItems.Add(s.Frequency)
                 .SubItems.Add(s.City.Name)
@@ -35,31 +35,31 @@ Public Class MainForm
             End If
         Next
 
-        lvStations.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent)
+        LvStations.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent)
     End Sub
 
-    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+    Private Sub BtnEdit_Click(sender As Object, e As EventArgs) Handles BtnEdit.Click
         EditStation()
     End Sub
 
     Private Sub EditStation()
-        If lvStations.SelectedItems.Count = 0 Then Exit Sub
+        If LvStations.SelectedItems.Count = 0 Then Exit Sub
 
-        Dim s = CType(lvStations.SelectedItems(0).Tag, Station)
+        Dim s = CType(LvStations.SelectedItems(0).Tag, Station)
         Using frm = New StationEditorForm()
             frm.StationID = s.ID
-            frm.txtName.Text = s.Name
-            frm.txtFrequency.Text = s.Frequency
+            frm.TxtName.Text = s.Name
+            frm.TxtFrequency.Text = s.Frequency
             frm.LoadCities()
-            frm.cbCity.SelectedItem = s.City
+            frm.CbCity.SelectedItem = s.City
             If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then LoadStations()
         End Using
     End Sub
 
     Private Sub DeleteStation()
-        If lvStations.SelectedItems.Count = 0 Then Exit Sub
+        If LvStations.SelectedItems.Count = 0 Then Exit Sub
 
-        Dim s = CType(lvStations.SelectedItems(0).Tag, Station)
+        Dim s = CType(LvStations.SelectedItems(0).Tag, Station)
         If MsgBox("Are you sure you want to delete the '" + s.Name + "' station", MsgBoxStyle.Question Or MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             fpdata.Data.Stations.DeleteObject(s)
             fpdata.Data.SaveChanges()
@@ -67,11 +67,11 @@ Public Class MainForm
         End If
     End Sub
 
-    Private Sub lvStations_DoubleClick(sender As Object, e As System.EventArgs) Handles lvStations.DoubleClick
+    Private Sub LvStations_DoubleClick(sender As Object, e As EventArgs) Handles LvStations.DoubleClick
         EditStation()
     End Sub
 
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
         DeleteStation()
     End Sub
 End Class

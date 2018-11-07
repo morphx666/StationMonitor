@@ -20,70 +20,70 @@ Public Class MonitorSetup
 
     Public Sub Initialize()
         For Each s In mOwner.DataManager.Data.Stations
-            cbStation.Items.Add(s.Name)
+            CbStation.Items.Add(s.Name)
         Next
 
-        If cbStation.Items.Count > 0 Then
-            cbStation.SelectedIndex = 0
+        If CbStation.Items.Count > 0 Then
+            CbStation.SelectedIndex = 0
 
             For Each d As DevicesCollection.Device In mOwner.Devices
-                Dim i = cbDevices.Items.Add(d)
-                If d.Selected Then cbDevices.SelectedIndex = i
+                Dim i = CbDevices.Items.Add(d)
+                If d.Selected Then CbDevices.SelectedIndex = i
             Next
-            If cbDevices.SelectedIndex = -1 Then cbDevices.SelectedIndex = 0
+            If CbDevices.SelectedIndex = -1 Then CbDevices.SelectedIndex = 0
         Else
             For Each ctrl As Control In Me.Controls
-                If ctrl.Name <> btnCancel.Name Then ctrl.Enabled = False
+                If ctrl.Name <> BtnCancel.Name Then ctrl.Enabled = False
             Next
         End If
     End Sub
 
-    Private Sub cbStation_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbStation.SelectedIndexChanged
-        Dim selStationName = cbStation.SelectedItem.ToString()
+    Private Sub CbStation_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbStation.SelectedIndexChanged
+        Dim selStationName = CbStation.SelectedItem.ToString()
         mOwner.SelectedStation = mOwner.DataManager.Data.Stations.Where(Function(s) s.Name = selStationName).First()
-        tbSamplingTime.Value = mOwner.SelectedStation.SamplingTime
+        TbSamplingTime.Value = mOwner.SelectedStation.SamplingTime
     End Sub
 
-    Private Sub ChannelMute_CheckedChanged(sender As Object, e As EventArgs) Handles rbLeft.CheckedChanged, rbRight.CheckedChanged
+    Private Sub ChannelMute_CheckedChanged(sender As Object, e As EventArgs) Handles RbLeft.CheckedChanged, RbRight.CheckedChanged
         If mOwner IsNot Nothing Then
-            mOwner.SelectedStation.LeftChMute = Not rbLeft.Checked
-            mOwner.SelectedStation.RightChMute = Not rbRight.Checked
+            mOwner.SelectedStation.LeftChMute = Not RbLeft.Checked
+            mOwner.SelectedStation.RightChMute = Not RbRight.Checked
         End If
     End Sub
 
-    Private Sub cmbChannelMode_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbChannelMode.SelectedIndexChanged
-        If cbChannelMode.SelectedIndex = 0 Then
-            rbLeft.Enabled = False
-            rbRight.Enabled = False
+    Private Sub CmbChannelMode_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbChannelMode.SelectedIndexChanged
+        If CbChannelMode.SelectedIndex = 0 Then
+            RbLeft.Enabled = False
+            RbRight.Enabled = False
 
             mOwner.SelectedStation.ChannelMode = 1
         Else
-            rbLeft.Enabled = True
-            rbRight.Enabled = True
+            RbLeft.Enabled = True
+            RbRight.Enabled = True
 
             mOwner.SelectedStation.ChannelMode = 2
         End If
     End Sub
 
-    Private Sub tbSamplingTime_ValueChanged(sender As Object, e As System.EventArgs) Handles tbSamplingTime.ValueChanged
-        If mOwner IsNot Nothing Then mOwner.SelectedStation.SamplingTime = tbSamplingTime.Value
+    Private Sub TbSamplingTime_ValueChanged(sender As Object, e As EventArgs) Handles TbSamplingTime.ValueChanged
+        If mOwner IsNot Nothing Then mOwner.SelectedStation.SamplingTime = TbSamplingTime.Value
     End Sub
 
-    Private Sub cbDevices_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDevices.SelectedIndexChanged
-        Dim selDevice As DevicesCollection.Device = CType(cbDevices.SelectedItem, DevicesCollection.Device)
+    Private Sub CbDevices_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbDevices.SelectedIndexChanged
+        Dim selDevice As DevicesCollection.Device = CType(CbDevices.SelectedItem, DevicesCollection.Device)
         mOwner.SelectedStation.RecordingDevice = selDevice.GUID.ToString()
 
-        cbSources.Items.Clear()
+        CbSources.Items.Clear()
         For Each srcLine As DevicesCollection.Device.RecordingSourcesCollection2.Line In selDevice.RecordingSources2
-            cbSources.Items.Add(srcLine)
+            CbSources.Items.Add(srcLine)
         Next
-        If cbSources.SelectedIndex = -1 AndAlso cbSources.Items.Count > 0 Then cbSources.SelectedIndex = 0
+        If CbSources.SelectedIndex = -1 AndAlso CbSources.Items.Count > 0 Then CbSources.SelectedIndex = 0
 
-        cbChannelMode.SelectedIndex = 0
+        CbChannelMode.SelectedIndex = 0
     End Sub
 
-    Private Sub cmbSources_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbSources.SelectedIndexChanged
-        Dim srcLine As DevicesCollection.Device.RecordingSourcesCollection2.Line = CType(cbSources.SelectedItem, DevicesCollection.Device.RecordingSourcesCollection2.Line)
+    Private Sub CmbSources_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbSources.SelectedIndexChanged
+        Dim srcLine As DevicesCollection.Device.RecordingSourcesCollection2.Line = CType(CbSources.SelectedItem, DevicesCollection.Device.RecordingSourcesCollection2.Line)
 
         SelectRecordingSource(srcLine)
     End Sub
@@ -94,32 +94,32 @@ Public Class MonitorSetup
         With srcLine
             If .HasVolume Then
                 Try
-                    tbVolume.CoreAudioControl = srcLine.CoreAudioLine.Parent.Line.Controls(0)
-                    tbVolume.Enabled = True
-                    tbVolume.IntegralChanges = False
+                    TbVolume.CoreAudioControl = srcLine.CoreAudioLine.Parent.Line.Controls(0)
+                    TbVolume.Enabled = True
+                    TbVolume.IntegralChanges = False
                 Catch
-                    tbVolume.Enabled = False
+                    TbVolume.Enabled = False
                 End Try
             Else
-                tbVolume.Enabled = False
+                TbVolume.Enabled = False
             End If
         End With
 
         selLine = srcLine
     End Sub
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Me.DialogResult = Windows.Forms.DialogResult.Cancel
+    Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
+        Me.DialogResult = DialogResult.Cancel
         Me.Close()
     End Sub
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Me.DialogResult = Windows.Forms.DialogResult.OK
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+        Me.DialogResult = DialogResult.OK
         Me.Close()
     End Sub
 
-    Private Sub MonitorSetup_FormClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        tbVolume.CoreAudioControl = Nothing
+    Private Sub MonitorSetup_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        TbVolume.CoreAudioControl = Nothing
     End Sub
 
     Private Sub MonitorSetup_Load(sender As Object, e As EventArgs) Handles Me.Load

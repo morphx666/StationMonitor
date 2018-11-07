@@ -81,14 +81,10 @@ Public Class Result
     End Operator
 
     Public Overrides Function Equals(obj As Object) As Boolean
-        If TypeOf obj Is Result Then
-            Return Me = CType(obj, Result)
-        Else
-            Return False
-        End If
+        Return If(TypeOf obj Is Result, Me = CType(obj, Result), False)
     End Function
 
-    Public Function CompareTo(other As Result) As Integer Implements System.IComparable(Of Result).CompareTo
+    Public Function CompareTo(other As Result) As Integer Implements IComparable(Of Result).CompareTo
         Return ErrorLevel.CompareTo(other.ErrorLevel)
     End Function
 End Class

@@ -4,74 +4,23 @@ Imports TracksManager.TrackAnalyzer.ResultEventArgs
 
 Public Class TrackAnalyzer
     Public Class DirtyTrack
-        Private mItem As ListViewItem
-        Private mArtist As String
-        Private mTitle As String
-        Private mAlbum As String
-        Private mGenre As String
-        Private mFileName As String
-        Private mYear As String
-        Private mAnalysisResult As Results
+        Public ReadOnly Property Item As ListViewItem
+        Public Property AnalysisResult As Results
+        Public ReadOnly Property Artist As String
+        Public ReadOnly Property Title As String
+        Public ReadOnly Property Album As String
+        Public ReadOnly Property Genre As String
+        Public ReadOnly Property FileName As String
+        Public ReadOnly Property Year As String
 
         Public Sub New(item As ListViewItem, artist As String, title As String, album As String, genre As String, year As String, fileName As String)
-            mItem = item
-            mArtist = artist
-            mTitle = title
-            mAlbum = album
-            mGenre = genre
-            mFileName = fileName
+            Me.Item = item
+            Me.Artist = artist
+            Me.Title = title
+            Me.Album = album
+            Me.Genre = genre
+            Me.FileName = fileName
         End Sub
-
-        Public ReadOnly Property Item As ListViewItem
-            Get
-                Return mItem
-            End Get
-        End Property
-
-        Public Property AnalysisResult As Results
-            Get
-                Return mAnalysisResult
-            End Get
-            Set(value As Results)
-                mAnalysisResult = value
-            End Set
-        End Property
-
-        Public ReadOnly Property Artist As String
-            Get
-                Return mArtist
-            End Get
-        End Property
-
-        Public ReadOnly Property Title As String
-            Get
-                Return mTitle
-            End Get
-        End Property
-
-        Public ReadOnly Property Album As String
-            Get
-                Return mAlbum
-            End Get
-        End Property
-
-        Public ReadOnly Property Genre As String
-            Get
-                Return mGenre
-            End Get
-        End Property
-
-        Public ReadOnly Property FileName As String
-            Get
-                Return mFileName
-            End Get
-        End Property
-
-        Public ReadOnly Property Year As String
-            Get
-                Return mYear
-            End Get
-        End Property
     End Class
 
     Private mDirtyTrack As DirtyTrack
@@ -96,46 +45,34 @@ Public Class TrackAnalyzer
             DatabaseError
         End Enum
 
-        Private mDescription
-        Private mResult As Results
+        Public ReadOnly Property Result As Results
+        Public ReadOnly Property Description As String
 
         Public Sub New(result As Results, Optional description As String = "")
-            mResult = result
-            mDescription = description
+            Me.Result = result
+            Me.Description = description
         End Sub
-
-        Public ReadOnly Property Result As Results
-            Get
-                Return mResult
-            End Get
-        End Property
-
-        Public ReadOnly Property Description As String
-            Get
-                Return mDescription
-            End Get
-        End Property
     End Class
 
     Public Event AnalysisResult(sender As Object, e As ResultEventArgs)
 
-    Private Sub dxvuCtrl_ControlIsReady() Handles dxvuCtrl.ControlIsReady
+    Private Sub DxvuCtrl_ControlIsReady() Handles DxvuCtrl.ControlIsReady
         InitializeSystem()
     End Sub
 
-    Private Sub TrackAnalyzer_HandleCreated(sender As Object, e As System.EventArgs) Handles Me.HandleCreated
+    Private Sub TrackAnalyzer_HandleCreated(sender As Object, e As EventArgs) Handles Me.HandleCreated
         If Me.FindForm IsNot Nothing Then AddHandler CType(Me.FindForm, Form).FormClosing, Sub()
-                                                                                               dxvuCtrl.StopMonitoring()
+                                                                                               DxvuCtrl.StopMonitoring()
                                                                                                fpData.Data.SaveChanges()
                                                                                                hashDataLib.Dispose()
                                                                                                fpData.Dispose()
-                                                                                               dxvuCtrl.Dispose()
+                                                                                               DxvuCtrl.Dispose()
                                                                                            End Sub
     End Sub
 
     Private Sub InitializeSystem()
         fpData = New DataManager()
-        hashDataLib = New HashLib(dxvuCtrl)
+        hashDataLib = New HashLib(DxvuCtrl)
 
         'Un4seen.Bass.Bass.BASS_Init(-1, 44100, Un4seen.Bass.BASSInit.BASS_DEVICE_DEFAULT, Me.Handle)
         'Un4seen.Bass.AddOn.Mix.BassMix.LoadMe()
@@ -144,11 +81,9 @@ Public Class TrackAnalyzer
                                            lastStatus = e
 
                                            Me.Invoke(New MethodInvoker(Sub()
-                                                                           If e.Status = HashLib.StatusFlags.Error Then
-                                                                               lblCurTrackStatus.Text = "Error: " + ToNiceStatusMessage(e.Error.ToString())
-                                                                           Else
-                                                                               lblCurTrackStatus.Text = ToNiceStatusMessage(e.Status.ToString())
-                                                                           End If
+                                                                           LblCurTrackStatus.Text = If(e.Status = HashLib.StatusFlags.Error,
+                                                                               "Error: " + ToNiceStatusMessage(e.Error.ToString()),
+                                                                               ToNiceStatusMessage(e.Status.ToString()))
                                                                        End Sub))
 
                                            waiter.Set()
@@ -157,12 +92,12 @@ Public Class TrackAnalyzer
         AddHandler hashDataLib.FFTProgress, Sub(sender As Object, e As HashLib.ProgressEventArgs)
                                                 Me.Invoke(New MethodInvoker(Sub()
                                                                                 Dim p As Single = e.Percentage
-                                                                                pbCurrentTrack.Value = p * 100
+                                                                                PbCurrentTrack.Value = p * 100
                                                                             End Sub))
                                             End Sub
 
-        dxvuCtrl.BackColor = Color.FromKnownColor(KnownColor.Control)
-        dxvuCtrl.EnableRendering = False
+        DxvuCtrl.BackColor = Color.FromKnownColor(KnownColor.Control)
+        DxvuCtrl.EnableRendering = False
     End Sub
 
     Private Function ToNiceStatusMessage(message As String) As String
@@ -187,13 +122,13 @@ Public Class TrackAnalyzer
         Me.syncObject = syncObject
 
         Me.Invoke(New MethodInvoker(Sub()
-                                        With pbCurrentTrack
+                                        With PbCurrentTrack
                                             .Minimum = 0
                                             .Maximum = 100
                                             .Value = 0
                                         End With
 
-                                        lblCurTrackProgress.Text = String.Format("{0} - {1}", mDirtyTrack.Artist, mDirtyTrack.Title)
+                                        LblCurTrackProgress.Text = String.Format("{0} - {1}", mDirtyTrack.Artist, mDirtyTrack.Title)
                                     End Sub))
 
         If swProgressTimer.IsRunning Then swProgressTimer.Stop()
@@ -272,9 +207,10 @@ Public Class TrackAnalyzer
         newTrack.GenreID = GetGenreID(mDirtyTrack.Genre)
 
         For Each hash In hashDataLib.Hashes
-            Dim newFingerprint = New Fingerprint()
-            newFingerprint.Hash = hash.HashValue
-            newFingerprint.Position = hash.Position
+            Dim newFingerprint = New Fingerprint With {
+                .Hash = hash.HashValue,
+                .Position = hash.Position
+            }
 
             'newFingerprint.c1 = hash.CeptralCoeficients(0)
             'newFingerprint.c2 = hash.CeptralCoeficients(1)
@@ -293,9 +229,10 @@ Public Class TrackAnalyzer
         Next
 
         For Each hash In hashDataLib.ImportantHashes
-            Dim newSubFingerprint = New SubFingerprint()
-            newSubFingerprint.Hash = hash.HashValue
-            newSubFingerprint.Position = hash.Position
+            Dim newSubFingerprint = New SubFingerprint With {
+                .Hash = hash.HashValue,
+                .Position = hash.Position
+            }
 
             newTrack.SubFingerprints.Add(newSubFingerprint)
         Next
@@ -310,8 +247,7 @@ Public Class TrackAnalyzer
         If matchingArtists.Count > 0 Then
             Return matchingArtists.First().ID
         Else
-            Dim newArtist = New Artist()
-            newArtist.Name = artistName
+            Dim newArtist = New Artist With {.Name = artistName}
             fpData.Data.Artists.AddObject(newArtist)
             fpData.Data.SaveChanges()
             Return newArtist.ID
@@ -323,8 +259,7 @@ Public Class TrackAnalyzer
         If matchingAlbums.Count > 0 Then
             Return matchingAlbums.First().ID
         Else
-            Dim newAlbum = New Album()
-            newAlbum.Name = albumName
+            Dim newAlbum = New Album With {.Name = albumName}
             fpData.Data.Albums.AddObject(newAlbum)
             fpData.Data.SaveChanges()
             Return newAlbum.ID
@@ -336,8 +271,7 @@ Public Class TrackAnalyzer
         If matchingGenres.Count > 0 Then
             Return matchingGenres.First().ID
         Else
-            Dim newGenre = New Genre()
-            newGenre.Name = genreName
+            Dim newGenre = New Genre With {.Name = genreName}
             fpData.Data.Genres.AddObject(newGenre)
             fpData.Data.SaveChanges()
             Return newGenre.ID

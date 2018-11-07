@@ -24,12 +24,12 @@ Partial Class TracksManagerForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lvFiles = New TracksManager.TracksListView()
-        Me.chArtist = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chTitle = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chAlbum = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chGenre = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chYear = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chFileName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ChArtist = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ChTitle = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ChAlbum = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ChGenre = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ChYear = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ChFileName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.gbItemProperties = New System.Windows.Forms.GroupBox()
         Me.btnAuto = New System.Windows.Forms.Button()
         Me.txtYear = New System.Windows.Forms.TextBox()
@@ -51,7 +51,7 @@ Partial Class TracksManagerForm
         Me.gbPlayer = New System.Windows.Forms.GroupBox()
         Me.tbPosition = New System.Windows.Forms.TrackBar()
         Me.lblSongName = New System.Windows.Forms.Label()
-        Me.dxvuCtrl = New NDXVUMeterNET.DXVUMeterNETGDI()
+        Me.DxvuCtrl = New NDXVUMeterNET.DXVUMeterNETGDI()
         Me.tcTracks = New System.Windows.Forms.TabControl()
         Me.tpTracksToAnalyze = New System.Windows.Forms.TabPage()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -84,46 +84,46 @@ Partial Class TracksManagerForm
         '
         'lvFiles
         '
-        Me.lvFiles.AllowDrop = True
-        Me.lvFiles.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.LvFiles.AllowDrop = True
+        Me.LvFiles.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lvFiles.CheckBoxes = True
-        Me.lvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chArtist, Me.chTitle, Me.chAlbum, Me.chGenre, Me.chYear, Me.chFileName})
-        Me.lvFiles.FullRowSelect = True
-        Me.lvFiles.GridLines = True
-        Me.lvFiles.HideSelection = False
-        Me.lvFiles.Location = New System.Drawing.Point(6, 6)
-        Me.lvFiles.Name = "lvFiles"
-        Me.lvFiles.Size = New System.Drawing.Size(517, 488)
-        Me.lvFiles.TabIndex = 0
-        Me.lvFiles.UseCompatibleStateImageBehavior = False
-        Me.lvFiles.View = System.Windows.Forms.View.Details
+        Me.LvFiles.CheckBoxes = True
+        Me.LvFiles.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ChArtist, Me.ChTitle, Me.ChAlbum, Me.ChGenre, Me.ChYear, Me.ChFileName})
+        Me.LvFiles.FullRowSelect = True
+        Me.LvFiles.GridLines = True
+        Me.LvFiles.HideSelection = False
+        Me.LvFiles.Location = New System.Drawing.Point(6, 6)
+        Me.LvFiles.Name = "lvFiles"
+        Me.LvFiles.Size = New System.Drawing.Size(517, 488)
+        Me.LvFiles.TabIndex = 0
+        Me.LvFiles.UseCompatibleStateImageBehavior = False
+        Me.LvFiles.View = System.Windows.Forms.View.Details
         '
         'chArtist
         '
-        Me.chArtist.Text = "Artist"
+        Me.ChArtist.Text = "Artist"
         '
         'chTitle
         '
-        Me.chTitle.Text = "Title"
+        Me.ChTitle.Text = "Title"
         '
         'chAlbum
         '
-        Me.chAlbum.Text = "Album"
+        Me.ChAlbum.Text = "Album"
         '
         'chGenre
         '
-        Me.chGenre.Text = "Genre"
+        Me.ChGenre.Text = "Genre"
         '
         'chYear
         '
-        Me.chYear.Text = "Year"
-        Me.chYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ChYear.Text = "Year"
+        Me.ChYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'chFileName
         '
-        Me.chFileName.Text = "File Name"
+        Me.ChFileName.Text = "File Name"
         '
         'gbItemProperties
         '
@@ -317,7 +317,7 @@ Partial Class TracksManagerForm
         Me.gbPlayer.Controls.Add(Me.lblSongName)
         Me.gbPlayer.Controls.Add(Me.btnStop)
         Me.gbPlayer.Controls.Add(Me.btnPlay)
-        Me.gbPlayer.Controls.Add(Me.dxvuCtrl)
+        Me.gbPlayer.Controls.Add(Me.DxvuCtrl)
         Me.gbPlayer.Location = New System.Drawing.Point(558, 278)
         Me.gbPlayer.Name = "gbPlayer"
         Me.gbPlayer.Size = New System.Drawing.Size(386, 295)
@@ -353,60 +353,60 @@ Partial Class TracksManagerForm
         '
         'dxvuCtrl
         '
-        Me.dxvuCtrl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.DxvuCtrl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dxvuCtrl.BackColor = System.Drawing.Color.Black
-        Me.dxvuCtrl.BitDepth = CType(16, Short)
-        Me.dxvuCtrl.Channels = CType(2, Short)
-        Me.dxvuCtrl.EnableRendering = True
-        Me.dxvuCtrl.FFTDetectDTMF = False
-        Me.dxvuCtrl.FFTHighPrecisionMode = False
-        Me.dxvuCtrl.FFTHistorySize = 4
-        Me.dxvuCtrl.FFTHoldMaxPeaks = False
-        Me.dxvuCtrl.FFTHoldMinPeaks = False
-        Me.dxvuCtrl.FFTLineChannelMode = NDXVUMeterNET.DXVUMeterNETGDI.FFTLineChannelModeConstants.Normal
-        Me.dxvuCtrl.FFTNormalized = True
-        Me.dxvuCtrl.FFTPeaksDecayDelay = 10
-        Me.dxvuCtrl.FFTPeaksDecaySpeed = 20
-        Me.dxvuCtrl.FFTPlotNoiseReduction = 0
-        Me.dxvuCtrl.FFTRenderScales = NDXVUMeterNET.DXVUMeterNETGDI.FFTRenderScalesConstants.Both
-        Me.dxvuCtrl.FFTScaleFont = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dxvuCtrl.FFTShowDecay = False
-        Me.dxvuCtrl.FFTShowMinMaxRange = False
-        Me.dxvuCtrl.FFTSize = NDXVUMeterNET.FFT.FFTSizeConstants.FFTs512
-        Me.dxvuCtrl.FFTSmoothing = 0
-        Me.dxvuCtrl.FFTStyle = NDXVUMeterNET.DXVUMeterNETGDI.FFTStyleConstants.Line
-        Me.dxvuCtrl.FFTWindow = NDXVUMeterNET.FFT.FFTWindowConstants.None
-        Me.dxvuCtrl.FFTXMax = 22050
-        Me.dxvuCtrl.FFTXMin = 0
-        Me.dxvuCtrl.FFTXScale = NDXVUMeterNET.DXVUMeterNETGDI.FFTXScaleConstants.Normal
-        Me.dxvuCtrl.FFTXZoom = False
-        Me.dxvuCtrl.FFTXZoomWindowPos = 0
-        Me.dxvuCtrl.FFTYScale = NDXVUMeterNET.DXVUMeterNETGDI.FFTYScaleConstants.dB
-        Me.dxvuCtrl.FFTYScaleMultiplier = 1.0R
-        Me.dxvuCtrl.Frequency = 44100
-        Me.dxvuCtrl.GreenOff = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.dxvuCtrl.GreenOn = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.dxvuCtrl.LeftChannelMute = False
-        Me.dxvuCtrl.LinesThickness = 1
-        Me.dxvuCtrl.Location = New System.Drawing.Point(7, 72)
-        Me.dxvuCtrl.Name = "dxvuCtrl"
-        Me.dxvuCtrl.NoiseFilter = 0
-        Me.dxvuCtrl.NumVUs = CType(32, Short)
-        Me.dxvuCtrl.Orientation = NDXVUMeterNET.DXVUMeterNETGDI.OrientationConstants.Horizontal
-        Me.dxvuCtrl.Overlap = 0.0R
-        Me.dxvuCtrl.PlaybackPosition = CType(0, Long)
-        Me.dxvuCtrl.PlaybackTime = ""
-        Me.dxvuCtrl.PlaybackVolume = CType(0, Short)
-        Me.dxvuCtrl.RedOff = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.dxvuCtrl.RedOn = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.dxvuCtrl.RightChannelMute = False
-        Me.dxvuCtrl.Size = New System.Drawing.Size(372, 183)
-        Me.dxvuCtrl.Style = NDXVUMeterNET.DXVUMeterNETGDI.StyleConstants.Oscilloscope
-        Me.dxvuCtrl.TabIndex = 0
-        Me.dxvuCtrl.YellowOff = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.dxvuCtrl.YellowOn = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.BackColor = System.Drawing.Color.Black
+        Me.DxvuCtrl.BitDepth = CType(16, Short)
+        Me.DxvuCtrl.Channels = CType(2, Short)
+        Me.DxvuCtrl.EnableRendering = True
+        Me.DxvuCtrl.FFTDetectDTMF = False
+        Me.DxvuCtrl.FFTHighPrecisionMode = False
+        Me.DxvuCtrl.FFTHistorySize = 4
+        Me.DxvuCtrl.FFTHoldMaxPeaks = False
+        Me.DxvuCtrl.FFTHoldMinPeaks = False
+        Me.DxvuCtrl.FFTLineChannelMode = NDXVUMeterNET.DXVUMeterNETGDI.FFTLineChannelModeConstants.Normal
+        Me.DxvuCtrl.FFTNormalized = True
+        Me.DxvuCtrl.FFTPeaksDecayDelay = 10
+        Me.DxvuCtrl.FFTPeaksDecaySpeed = 20
+        Me.DxvuCtrl.FFTPlotNoiseReduction = 0
+        Me.DxvuCtrl.FFTRenderScales = NDXVUMeterNET.DXVUMeterNETGDI.FFTRenderScalesConstants.Both
+        Me.DxvuCtrl.FFTScaleFont = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DxvuCtrl.FFTShowDecay = False
+        Me.DxvuCtrl.FFTShowMinMaxRange = False
+        Me.DxvuCtrl.FFTSize = NDXVUMeterNET.FFT.FFTSizeConstants.FFTs512
+        Me.DxvuCtrl.FFTSmoothing = 0
+        Me.DxvuCtrl.FFTStyle = NDXVUMeterNET.DXVUMeterNETGDI.FFTStyleConstants.Line
+        Me.DxvuCtrl.FFTWindow = NDXVUMeterNET.FFT.FFTWindowConstants.None
+        Me.DxvuCtrl.FFTXMax = 22050
+        Me.DxvuCtrl.FFTXMin = 0
+        Me.DxvuCtrl.FFTXScale = NDXVUMeterNET.DXVUMeterNETGDI.FFTXScaleConstants.Normal
+        Me.DxvuCtrl.FFTXZoom = False
+        Me.DxvuCtrl.FFTXZoomWindowPos = 0
+        Me.DxvuCtrl.FFTYScale = NDXVUMeterNET.DXVUMeterNETGDI.FFTYScaleConstants.dB
+        Me.DxvuCtrl.FFTYScaleMultiplier = 1.0R
+        Me.DxvuCtrl.Frequency = 44100
+        Me.DxvuCtrl.GreenOff = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.GreenOn = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.LeftChannelMute = False
+        Me.DxvuCtrl.LinesThickness = 1
+        Me.DxvuCtrl.Location = New System.Drawing.Point(7, 72)
+        Me.DxvuCtrl.Name = "dxvuCtrl"
+        Me.DxvuCtrl.NoiseFilter = 0
+        Me.DxvuCtrl.NumVUs = CType(32, Short)
+        Me.DxvuCtrl.Orientation = NDXVUMeterNET.DXVUMeterNETGDI.OrientationConstants.Horizontal
+        Me.DxvuCtrl.Overlap = 0.0R
+        Me.DxvuCtrl.PlaybackPosition = CType(0, Long)
+        Me.DxvuCtrl.PlaybackTime = ""
+        Me.DxvuCtrl.PlaybackVolume = CType(0, Short)
+        Me.DxvuCtrl.RedOff = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.RedOn = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.RightChannelMute = False
+        Me.DxvuCtrl.Size = New System.Drawing.Size(372, 183)
+        Me.DxvuCtrl.Style = NDXVUMeterNET.DXVUMeterNETGDI.StyleConstants.Oscilloscope
+        Me.DxvuCtrl.TabIndex = 0
+        Me.DxvuCtrl.YellowOff = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DxvuCtrl.YellowOn = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(0, Byte), Integer))
         '
         'tcTracks
         '
@@ -430,7 +430,7 @@ Partial Class TracksManagerForm
         Me.tpTracksToAnalyze.Controls.Add(Me.btnSelNon)
         Me.tpTracksToAnalyze.Controls.Add(Me.btnSelInv)
         Me.tpTracksToAnalyze.Controls.Add(Me.btnSelAll)
-        Me.tpTracksToAnalyze.Controls.Add(Me.lvFiles)
+        Me.tpTracksToAnalyze.Controls.Add(Me.LvFiles)
         Me.tpTracksToAnalyze.Location = New System.Drawing.Point(4, 24)
         Me.tpTracksToAnalyze.Name = "tpTracksToAnalyze"
         Me.tpTracksToAnalyze.Padding = New System.Windows.Forms.Padding(3)
@@ -642,53 +642,53 @@ Partial Class TracksManagerForm
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents lvFiles As TracksListView
-    Friend WithEvents chFileName As System.Windows.Forms.ColumnHeader
-    Friend WithEvents dxvuCtrl As NDXVUMeterNET.DXVUMeterNETGDI
-    Friend WithEvents chArtist As System.Windows.Forms.ColumnHeader
-    Friend WithEvents chTitle As System.Windows.Forms.ColumnHeader
-    Friend WithEvents chAlbum As System.Windows.Forms.ColumnHeader
-    Friend WithEvents chGenre As System.Windows.Forms.ColumnHeader
-    Friend WithEvents chYear As System.Windows.Forms.ColumnHeader
-    Friend WithEvents gbItemProperties As System.Windows.Forms.GroupBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents cbGenre As System.Windows.Forms.ComboBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents cbAlbum As System.Windows.Forms.ComboBox
-    Friend WithEvents cbArtist As System.Windows.Forms.ComboBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents txtTitle As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents btnReset As System.Windows.Forms.Button
-    Friend WithEvents btnPlay As System.Windows.Forms.Button
-    Friend WithEvents btnStop As System.Windows.Forms.Button
-    Friend WithEvents gbPlayer As System.Windows.Forms.GroupBox
-    Friend WithEvents tbPosition As System.Windows.Forms.TrackBar
-    Friend WithEvents lblSongName As System.Windows.Forms.Label
-    Friend WithEvents btnEditGenres As System.Windows.Forms.Button
-    Friend WithEvents btnEditAlbums As System.Windows.Forms.Button
-    Friend WithEvents btnEditArtists As System.Windows.Forms.Button
-    Friend WithEvents txtYear As System.Windows.Forms.TextBox
-    Friend WithEvents tcTracks As System.Windows.Forms.TabControl
-    Friend WithEvents tpTracksToAnalyze As System.Windows.Forms.TabPage
-    Friend WithEvents tpTracksInDB As System.Windows.Forms.TabPage
-    Friend WithEvents dbDataGridView As System.Windows.Forms.DataGridView
-    Friend WithEvents btnEdit As System.Windows.Forms.Button
-    Friend WithEvents cmsEditMenu As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents cmsEditMenuArtists As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmsEditMenuAlbums As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmsEditMenuGenres As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents tbFilter As System.Windows.Forms.TextBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents lblTracksInDB As System.Windows.Forms.Label
-    Friend WithEvents fpvCtrl As FPDataManager.FingerprintViewer
-    Friend WithEvents lblQueuedTracks As System.Windows.Forms.Label
-    Friend WithEvents btnSelMis As System.Windows.Forms.Button
-    Friend WithEvents btnSelNon As System.Windows.Forms.Button
-    Friend WithEvents btnSelInv As System.Windows.Forms.Button
-    Friend WithEvents btnSelAll As System.Windows.Forms.Button
-    Friend WithEvents btnStart As System.Windows.Forms.Button
-    Friend WithEvents btnClear As System.Windows.Forms.Button
-    Friend WithEvents btnAuto As System.Windows.Forms.Button
+    Friend WithEvents LvFiles As TracksListView
+    Friend WithEvents ChFileName As ColumnHeader
+    Friend WithEvents DxvuCtrl As NDXVUMeterNET.DXVUMeterNETGDI
+    Friend WithEvents ChArtist As ColumnHeader
+    Friend WithEvents ChTitle As ColumnHeader
+    Friend WithEvents ChAlbum As ColumnHeader
+    Friend WithEvents ChGenre As ColumnHeader
+    Friend WithEvents ChYear As ColumnHeader
+    Friend WithEvents GbItemProperties As GroupBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents CbGenre As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents CbAlbum As ComboBox
+    Friend WithEvents CbArtist As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents TxtTitle As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents BtnReset As Button
+    Friend WithEvents BtnPlay As Button
+    Friend WithEvents BtnStop As Button
+    Friend WithEvents GbPlayer As GroupBox
+    Friend WithEvents TbPosition As TrackBar
+    Friend WithEvents LblSongName As Label
+    Friend WithEvents BtnEditGenres As Button
+    Friend WithEvents BtnEditAlbums As Button
+    Friend WithEvents BtnEditArtists As Button
+    Friend WithEvents TxtYear As TextBox
+    Friend WithEvents TcTracks As TabControl
+    Friend WithEvents TpTracksToAnalyze As TabPage
+    Friend WithEvents TpTracksInDB As TabPage
+    Friend WithEvents DbDataGridView As DataGridView
+    Friend WithEvents BtnEdit As Button
+    Friend WithEvents CmsEditMenu As ContextMenuStrip
+    Friend WithEvents CmsEditMenuArtists As ToolStripMenuItem
+    Friend WithEvents CmsEditMenuAlbums As ToolStripMenuItem
+    Friend WithEvents CmsEditMenuGenres As ToolStripMenuItem
+    Friend WithEvents TbFilter As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents LblTracksInDB As Label
+    Friend WithEvents FpvCtrl As FPDataManager.FingerprintViewer
+    Friend WithEvents LblQueuedTracks As Label
+    Friend WithEvents BtnSelMis As Button
+    Friend WithEvents BtnSelNon As Button
+    Friend WithEvents BtnSelInv As Button
+    Friend WithEvents BtnSelAll As Button
+    Friend WithEvents BtnStart As Button
+    Friend WithEvents BtnClear As Button
+    Friend WithEvents BtnAuto As Button
 End Class

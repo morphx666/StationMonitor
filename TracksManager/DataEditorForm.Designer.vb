@@ -23,8 +23,8 @@ Partial Class DataEditorForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.EditorDataGridView = New System.Windows.Forms.DataGridView()
-        Me.lblTableName = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.Button()
+        Me.LblTableName = New System.Windows.Forms.Label()
+        Me.BtnClose = New System.Windows.Forms.Button()
         CType(Me.EditorDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -41,30 +41,30 @@ Partial Class DataEditorForm
         '
         'lblTableName
         '
-        Me.lblTableName.AutoSize = True
-        Me.lblTableName.Location = New System.Drawing.Point(14, 10)
-        Me.lblTableName.Name = "lblTableName"
-        Me.lblTableName.Size = New System.Drawing.Size(71, 15)
-        Me.lblTableName.TabIndex = 1
-        Me.lblTableName.Text = "Table Name"
+        Me.LblTableName.AutoSize = True
+        Me.LblTableName.Location = New System.Drawing.Point(14, 10)
+        Me.LblTableName.Name = "lblTableName"
+        Me.LblTableName.Size = New System.Drawing.Size(71, 15)
+        Me.LblTableName.TabIndex = 1
+        Me.LblTableName.Text = "Table Name"
         '
         'btnClose
         '
-        Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.Location = New System.Drawing.Point(284, 418)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(87, 27)
-        Me.btnClose.TabIndex = 2
-        Me.btnClose.Text = "Close"
-        Me.btnClose.UseVisualStyleBackColor = True
+        Me.BtnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnClose.Location = New System.Drawing.Point(284, 418)
+        Me.BtnClose.Name = "btnClose"
+        Me.BtnClose.Size = New System.Drawing.Size(87, 27)
+        Me.BtnClose.TabIndex = 2
+        Me.BtnClose.Text = "Close"
+        Me.BtnClose.UseVisualStyleBackColor = True
         '
         'DataEditorForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(386, 456)
-        Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.lblTableName)
+        Me.Controls.Add(Me.BtnClose)
+        Me.Controls.Add(Me.LblTableName)
         Me.Controls.Add(Me.EditorDataGridView)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "DataEditorForm"
@@ -75,7 +75,7 @@ Partial Class DataEditorForm
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents EditorDataGridView As System.Windows.Forms.DataGridView
-    Friend WithEvents lblTableName As System.Windows.Forms.Label
-    Friend WithEvents btnClose As System.Windows.Forms.Button
+    Friend WithEvents EditorDataGridView As DataGridView
+    Friend WithEvents LblTableName As Label
+    Friend WithEvents BtnClose As Button
 End Class

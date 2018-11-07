@@ -75,7 +75,7 @@ Partial Class AnalyzerForm
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents lblGlobalProgress As System.Windows.Forms.Label
-    Friend WithEvents pbGlobalProgress As System.Windows.Forms.ProgressBar
-    Friend WithEvents lblEleapsed As System.Windows.Forms.Label
+    Friend WithEvents lblGlobalProgress As Label
+    Friend WithEvents pbGlobalProgress As ProgressBar
+    Friend WithEvents lblEleapsed As Label
 End Class

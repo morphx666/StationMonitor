@@ -47,7 +47,7 @@ Public Class AnalyzerForm
 
             AddHandler ta.AnalysisResult, Sub(sender As Object, e As ResultEventArgs) waiter.Set()
 
-            AddHandler ta.dxvuCtrl.ControlIsReady, Sub()
+            AddHandler ta.DxvuCtrl.ControlIsReady, Sub()
                                                        threadsReadyCount += 1
                                                        waiter.Set()
                                                    End Sub

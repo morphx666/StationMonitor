@@ -158,7 +158,7 @@ Public Class HashLib
                                                RaiseEvent FFTFrame(Me, dummyEventArgs)
                                            End Sub
 
-            AddHandler mDXVUCtrl.Paint, Sub(sender As Object, e As System.Windows.Forms.PaintEventArgs)
+            AddHandler mDXVUCtrl.Paint, Sub(sender As Object, e As PaintEventArgs)
                                             If Not PaintBands Then Exit Sub
 
                                             Dim bandIndex As Integer
@@ -344,11 +344,9 @@ Public Class HashLib
             ' We should try setting the bandwidth to "2" in order to average the power of a band based on its history
             '    and the power of the two adjacent bands ((b-1)+b+(b+1))/3:
             '    mDXVUCtrl.FFTAverageFromIndex(bandsIndexes(i), FFTChannelConstants.Left, 2)
-            If mDXVUCtrl.LeftChannelMute Then
-                value = mDXVUCtrl.FFTAverageFromIndex(bandsIndexes(i), FFTChannelConstants.Right, 2)
-            Else
-                value = mDXVUCtrl.FFTAverageFromIndex(bandsIndexes(i), FFTChannelConstants.Left, 2)
-            End If
+            value = If(mDXVUCtrl.LeftChannelMute,
+                mDXVUCtrl.FFTAverageFromIndex(bandsIndexes(i), FFTChannelConstants.Right, 2),
+                mDXVUCtrl.FFTAverageFromIndex(bandsIndexes(i), FFTChannelConstants.Left, 2))
             If value < 0.02 Then value = 0
             curFrameEnergySum.Add(i, value ^ 2)
         Next
@@ -539,16 +537,10 @@ Public Class HashLib
 
     Public Property PlaybackPosition As Long
         Get
-            If bassStream <> 0 Then
-                Return Un4seen.Bass.Bass.BASS_ChannelGetPosition(bassStream)
-            Else
-                Return -1
-            End If
+            Return If(bassStream <> 0, Un4seen.Bass.Bass.BASS_ChannelGetPosition(bassStream), -1)
         End Get
         Set(value As Long)
-            If bassStream <> 0 Then
-                Un4seen.Bass.Bass.BASS_ChannelSetPosition(bassStream, value)
-            End If
+            If bassStream <> 0 Then Un4seen.Bass.Bass.BASS_ChannelSetPosition(bassStream, value)
         End Set
     End Property
 

@@ -137,7 +137,7 @@ Partial Class StationMonitorForm
     Friend WithEvents fpvReference As FPDataManager.FingerprintViewer
     Friend WithEvents fpvDiff As FPDataManager.FingerprintViewer
     Friend WithEvents Monitor1 As StationMonitor.Monitor
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
 End Class

@@ -9,7 +9,7 @@ Public Class Monitor
     End Enum
 
     Private mFPVLive As FingerprintViewer
-    Private mFPVRefference As FingerprintViewer
+    Private mFPVReference As FingerprintViewer
     Private mFPVDifference As FingerprintViewer
     Private fpvsSet As Boolean
 
@@ -34,21 +34,21 @@ Public Class Monitor
     Private mode As ListModes = ListModes.DetectedTracks
     Private resultLabels(5 - 1) As ResultLabel
 
-    Private Sub Monitor_HandleCreated(sender As Object, e As System.EventArgs) Handles Me.HandleCreated
-        btnSettings.Enabled = False
+    Private Sub Monitor_HandleCreated(sender As Object, e As EventArgs) Handles Me.HandleCreated
+        BtnSettings.Enabled = False
         If Me.FindForm IsNot Nothing Then AddHandler CType(Me.FindForm, Form).FormClosing, Sub()
                                                                                                fpData.Data.SaveChanges()
-                                                                                               dxvuCtrl.StopMonitoring()
+                                                                                               DxvuCtrl.StopMonitoring()
                                                                                            End Sub
     End Sub
 
-    Private Sub Monitor_Load(sender As Object, e As System.EventArgs) Handles Me.Load
-        btnDetectedTracks.Enabled = False
-        btnPlayedTracks.Enabled = False
+    Private Sub Monitor_Load(sender As Object, e As EventArgs) Handles Me.Load
+        BtnDetectedTracks.Enabled = False
+        BtnPlayedTracks.Enabled = False
 
         If Not Me.DesignMode Then
             fpData = New DataManager()
-            hashDataLib = New HashLib(dxvuCtrl)
+            hashDataLib = New HashLib(DxvuCtrl)
 
             fpData.Data.Refresh(Data.Objects.RefreshMode.StoreWins, fpData.Data.Tracks)
 
@@ -64,55 +64,54 @@ Public Class Monitor
 
     Public Sub SetFingerPrintViewers(live As FingerprintViewer, reference As FingerprintViewer, difference As FingerprintViewer)
         mFPVLive = live
-        mFPVRefference = reference
+        mFPVReference = reference
         mFPVDifference = difference
 
         If mFPVLive IsNot Nothing Then mFPVLive.HashBands = hashDataLib.NumOfFFTBands
-        If mFPVRefference IsNot Nothing Then mFPVRefference.HashBands = hashDataLib.NumOfFFTBands
+        If mFPVReference IsNot Nothing Then mFPVReference.HashBands = hashDataLib.NumOfFFTBands
         If mFPVDifference IsNot Nothing Then mFPVDifference.HashBands = hashDataLib.NumOfFFTBands
 
         fpvsSet = Not (live Is Nothing OrElse reference Is Nothing OrElse difference Is Nothing)
     End Sub
 
-    Private Sub DXVUMeterNET_IsReady() Handles dxvuCtrl.ControlIsReady
-        btnSettings.Enabled = True
+    Private Sub DXVUMeterNET_IsReady() Handles DxvuCtrl.ControlIsReady
+        BtnSettings.Enabled = True
     End Sub
 
-    Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
+    Private Sub BtnSettings_Click(sender As Object, e As EventArgs) Handles BtnSettings.Click
         Using ms As New MonitorSetup(Me)
             If ms.ShowDialog(Me) = DialogResult.OK Then Initialize()
         End Using
     End Sub
 
-    Private Sub btnDetectedTracks_Click(sender As Object, e As EventArgs) Handles btnDetectedTracks.Click
+    Private Sub BtnDetectedTracks_Click(sender As Object, e As EventArgs) Handles BtnDetectedTracks.Click
         mode = ListModes.DetectedTracks
     End Sub
 
-    Private Sub btnPlayedTracks_Click(sender As Object, e As EventArgs) Handles btnPlayedTracks.Click
+    Private Sub BtnPlayedTracks_Click(sender As Object, e As EventArgs) Handles BtnPlayedTracks.Click
         mode = ListModes.PlayedTracks
     End Sub
 
-    Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
+    Private Sub BtnStart_Click(sender As Object, e As EventArgs) Handles BtnStart.Click
         StartMonitoring()
     End Sub
 
-    Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
+    Private Sub BtnStop_Click(sender As Object, e As EventArgs) Handles BtnStop.Click
         StopMonitoring()
     End Sub
 
     Private Sub StartMonitoring()
-        btnSettings.Enabled = False
-        btnStart.Enabled = False
-        btnStop.Enabled = True
+        BtnSettings.Enabled = False
+        BtnStart.Enabled = False
+        BtnStop.Enabled = True
 
         lockedResult = New Result()
 
-        dxvuCtrl.StartMonitoring()
+        DxvuCtrl.StartMonitoring()
 
         continiousMonitorWaiter = New AutoResetEvent(False)
 
-        continiousMonitorThread = New Thread(AddressOf ContiniousMonitorSub)
-        continiousMonitorThread.IsBackground = True
+        continiousMonitorThread = New Thread(AddressOf ContiniousMonitorSub) With {.IsBackground = True}
         continiousMonitorThread.Start()
     End Sub
 
@@ -123,11 +122,11 @@ Public Class Monitor
         End If
 
         swTimer.Stop()
-        dxvuCtrl.StopMonitoring()
+        DxvuCtrl.StopMonitoring()
 
-        btnSettings.Enabled = True
-        btnStart.Enabled = True
-        btnStop.Enabled = False
+        BtnSettings.Enabled = True
+        BtnStart.Enabled = True
+        BtnStop.Enabled = False
     End Sub
 
     Private Sub ContiniousMonitorSub()
@@ -286,9 +285,9 @@ Public Class Monitor
 
     Private Sub AnalyzeResults()
         If sampledFingerPrintLength <= 5 Then
-            rlLockedTrack.CustomText = "No Audio Detected"
+            RlLockedTrack.CustomText = "No Audio Detected"
             mFPVLive.Hashes = {}
-            mFPVRefference.Hashes = {}
+            mFPVReference.Hashes = {}
             mFPVDifference.Hashes = {}
 
             lockedResult.UnSet()
@@ -351,18 +350,18 @@ Public Class Monitor
         End If
 
         If lockedResult.IsSet Then
-            rlLockedTrack.Result = lockedResult
-            rlLockedTrack.Position = lockedResult.MatchHashIndex / lockedResult.Hashes.Length
+            RlLockedTrack.Result = lockedResult
+            RlLockedTrack.Position = lockedResult.MatchHashIndex / lockedResult.Hashes.Length
         Else
-            rlLockedTrack.Result = Nothing
+            RlLockedTrack.Result = Nothing
         End If
 
         If fpvsSet Then
             mFPVLive.Hashes = hashDataLib.Hashes
 
             If lockedResult.IsSet Then
-                mFPVRefference.Track = lockedResult.Track
-                mFPVRefference.SelectedHash = lockedResult.MatchHashIndex
+                mFPVReference.Track = lockedResult.Track
+                mFPVReference.SelectedHash = lockedResult.MatchHashIndex
 
                 Dim dh(sampledFingerPrintLength - 1) As HashLib.Hash
                 For i As Integer = 0 To sampledFingerPrintLength - 1
@@ -370,7 +369,7 @@ Public Class Monitor
                 Next
                 mFPVDifference.Hashes = dh
             Else
-                mFPVRefference.Track = Nothing
+                mFPVReference.Track = Nothing
                 mFPVDifference.Hashes = {}
             End If
         End If
@@ -380,17 +379,13 @@ Public Class Monitor
 
     Private Sub UpdatePlayedTracksDB()
         Dim cleanUpPlayedTracks As Boolean = False
-        Dim newPlayedTrack As tmpPlayedTrack = New tmpPlayedTrack()
-
-        If lockedResult.IsSet Then
-            newPlayedTrack.TrackID = lockedResult.Track.ID
-        Else
-            newPlayedTrack.TrackID = New Integer?()
-        End If
-        newPlayedTrack.StationID = mSelectedStation.ID
-        newPlayedTrack.StartTime = Now
-        newPlayedTrack.EndTime = Now
-        newPlayedTrack.Score = If(lockedResult.IsSet, lockedResult.ErrorLevel, Integer.MaxValue)
+        Dim newPlayedTrack As tmpPlayedTrack = New tmpPlayedTrack With {
+            .TrackID = If(lockedResult.IsSet, lockedResult.Track.ID, New Integer?()),
+            .StationID = mSelectedStation.ID,
+            .StartTime = Now,
+            .EndTime = Now,
+            .Score = If(lockedResult.IsSet, lockedResult.ErrorLevel, Integer.MaxValue)
+        }
 
         If fpData.Data.tmpPlayedTracks.Count = 0 Then
             fpData.Data.tmpPlayedTracks.AddObject(newPlayedTrack)
@@ -416,11 +411,12 @@ Public Class Monitor
 
         If fpData.Data.tmpPlayedTracks.Count > 5 Then
             Dim firstTrack = fpData.Data.tmpPlayedTracks.First()
-            Dim newTrack As New PlayedTrack()
-            newTrack.EndTime = firstTrack.EndTime
-            newTrack.StartTime = firstTrack.StartTime
-            newTrack.StationID = firstTrack.StationID
-            newTrack.TrackID = firstTrack.TrackID
+            Dim newTrack As New PlayedTrack With {
+                .EndTime = firstTrack.EndTime,
+                .StartTime = firstTrack.StartTime,
+                .StationID = firstTrack.StationID,
+                .TrackID = firstTrack.TrackID
+            }
             fpData.Data.AddToPlayedTracks(newTrack)
             fpData.Data.DeleteObject(firstTrack)
             cleanUpPlayedTracks = True
@@ -469,16 +465,9 @@ Public Class Monitor
     End Sub
 
     Private Function PlayedTrackToString(playedTrack As tmpPlayedTrack) As String
-        Dim fileName As String
-        If playedTrack.TrackID.HasValue Then
-            fileName = playedTrack.Track.Artist.Name + " - " + playedTrack.Track.Title
-        Else
-            If playedTrack.Duration < 6 * 60 Then
-                fileName = "Unknown Track"
-            Else
-                fileName = "Commercial Block?"
-            End If
-        End If
+        Dim fileName = If(playedTrack.TrackID.HasValue,
+            playedTrack.Track.Artist.Name + " - " + playedTrack.Track.Title,
+            If(playedTrack.Duration < 6 * 60, "Unknown Track", "Commercial Block?"))
 
         Dim duration = playedTrack.EndTime - playedTrack.StartTime
         Return String.Format("{1:d2}:{2:d2}:{3:d2} -> {4:d2}:{5:d2}:{6:d2} [{7:d2}m {8:d2}s]: {0}", fileName, playedTrack.StartTime.Hour,
@@ -514,34 +503,34 @@ Public Class Monitor
 
     Public ReadOnly Property Devices As DevicesCollection
         Get
-            Return dxvuCtrl.Devices
+            Return DxvuCtrl.Devices
         End Get
     End Property
 
     Private Sub Initialize()
-        rlLockedTrack.Result = Nothing
+        RlLockedTrack.Result = Nothing
 
         For i As Integer = 0 To resultLabels.Count - 1
             resultLabels(i).CustomText = " "
         Next
 
         If mSelectedStation Is Nothing Then
-            lblStationName.Text = "(No Station Selected)"
-            btnStart.Enabled = False
-            btnStop.Enabled = False
+            LblStationName.Text = "(No Station Selected)"
+            BtnStart.Enabled = False
+            BtnStop.Enabled = False
         Else
             samplingTime = mSelectedStation.SamplingTime * 1000
 
-            For Each device In dxvuCtrl.Devices
+            For Each device In DxvuCtrl.Devices
                 If device.GUID.ToString() = mSelectedStation.RecordingDevice Then
                     device.Selected = True
                     Exit For
                 End If
             Next
 
-            lblStationName.Text = mSelectedStation.Name
-            btnStart.Enabled = True
-            btnStop.Enabled = False
+            LblStationName.Text = mSelectedStation.Name
+            BtnStart.Enabled = True
+            BtnStop.Enabled = False
         End If
     End Sub
 
