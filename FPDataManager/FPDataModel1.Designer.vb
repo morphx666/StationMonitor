@@ -17,7 +17,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
-<Assembly: EdmSchemaAttribute("eed19580-8fe2-4805-b40f-41f48db99d17")>
+<Assembly: EdmSchemaAttribute("178b2674-e785-44b1-a2c7-f9c5a5ed5ad3")>
 #Region "EDM Relationship Metadata"
 <Assembly: EdmRelationshipAttribute("fpdataModel", "FK_Advertisers_Cities", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(City), "Advertiser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Advertiser), True)>
 <Assembly: EdmRelationshipAttribute("fpdataModel", "FK_Tracks_Albums", "Album", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(Album), "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Track), True)>
@@ -469,6 +469,7 @@ Public Partial Class fpdataEntities
         End If
 
         Return MyBase.ExecuteFunction(Of SimilarHash)("FindSimilarHashes", testHashParameter, thresholdParameter)
+
     End Function
 
     #End Region

@@ -4,416 +4,416 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="fpdataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Advertisers">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="75" Nullable="false" />
-          <Property Name="Contract" Type="varchar" MaxLength="50" />
-          <Property Name="Address" Type="varchar" MaxLength="200" />
-          <Property Name="CityID" Type="int" Nullable="false" />
-          <Property Name="Phones" Type="varchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="Albums">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Year" Type="int" />
-          <Property Name="SealID" Type="int" />
-        </EntityType>
-        <EntityType Name="Artists">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CepstralCoefficients">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="c1" Type="float" Nullable="false" />
-          <Property Name="c2" Type="float" Nullable="false" />
-          <Property Name="c3" Type="float" Nullable="false" />
-          <Property Name="c4" Type="float" Nullable="false" />
-          <Property Name="c5" Type="float" Nullable="false" />
-          <Property Name="c6" Type="float" Nullable="false" />
-          <Property Name="c7" Type="float" Nullable="false" />
-          <Property Name="c8" Type="float" Nullable="false" />
-          <Property Name="c9" Type="float" Nullable="false" />
-          <Property Name="c10" Type="float" Nullable="false" />
-          <Property Name="c11" Type="float" Nullable="false" />
-          <Property Name="c12" Type="float" Nullable="false" />
-          <Property Name="TrackID" Type="int" Nullable="false" />
-          <Property Name="Position" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Cities">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Clients">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Contract" Type="varchar" MaxLength="50" />
-          <Property Name="Address" Type="varchar" MaxLength="200" />
-          <Property Name="CityID" Type="int" Nullable="false" />
-          <Property Name="Phones" Type="varchar" MaxLength="100" />
-          <Property Name="Type" Type="tinyint" Nullable="false" />
-          <Property Name="PublisherID" Type="int" />
-        </EntityType>
-        <EntityType Name="configs">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fingerPrintsDirectory" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Fingerprints">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Hash" Type="int" />
-          <Property Name="TrackID" Type="int" Nullable="false" />
-          <Property Name="Position" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Genres">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PlayedTracks">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="StartTime" Type="datetime" Nullable="false" />
-          <Property Name="EndTime" Type="datetime" Nullable="false" />
-          <Property Name="TrackID" Type="int" Nullable="false" />
-          <Property Name="StationID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RecordsSeals">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Type" Type="tinyint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Stations">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Frequency" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CityID" Type="int" Nullable="false" />
-          <Property Name="Type" Type="tinyint" Nullable="false" />
-          <Property Name="SamplingTime" Type="int" Nullable="false" />
-          <Property Name="RecordingDevice" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="SourceLine" Type="int" Nullable="false" />
-          <Property Name="ChannelMode" Type="int" Nullable="false" />
-          <Property Name="LeftChMute" Type="int" Nullable="false" />
-          <Property Name="RightChMute" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="SubFingerprints">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Hash" Type="int" />
-          <Property Name="TrackID" Type="int" Nullable="false" />
-          <Property Name="Position" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="tmpPlayedTracks">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="StartTime" Type="datetime" Nullable="false" />
-          <Property Name="EndTime" Type="datetime" Nullable="false" />
-          <Property Name="TrackID" Type="int" />
-          <Property Name="StationID" Type="int" Nullable="false" />
-          <Property Name="Score" Type="float" Nullable="false" />
-          <Property Name="Duration" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Tracks">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MediaType" Type="tinyint" Nullable="false" />
-          <Property Name="Title" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="Year" Type="int" Nullable="false" />
-          <Property Name="ArtistID" Type="int" Nullable="false" />
-          <Property Name="AlbumID" Type="int" Nullable="false" />
-          <Property Name="GenreID" Type="int" Nullable="false" />
-          <Property Name="SealID" Type="int" />
-          <Property Name="ClientID" Type="int" />
-          <Property Name="Campaign" Type="varchar" MaxLength="100" />
-          <Property Name="Version" Type="varchar" MaxLength="75" />
-          <Property Name="FileName" Type="varchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Priority" Type="int" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_Advertisers_Cities">
-          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
-          <End Role="Advertisers" Type="Self.Advertisers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cities">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Advertisers">
-              <PropertyRef Name="CityID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CepstralCoefficients_Tracks">
-          <End Role="Tracks" Type="Self.Tracks" Multiplicity="1" />
-          <End Role="CepstralCoefficients" Type="Self.CepstralCoefficients" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tracks">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="CepstralCoefficients">
-              <PropertyRef Name="TrackID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Clientes_Ciudades">
-          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
-          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cities">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Clients">
-              <PropertyRef Name="CityID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Fingerprints_Tracks">
-          <End Role="Tracks" Type="Self.Tracks" Multiplicity="1" />
-          <End Role="Fingerprints" Type="Self.Fingerprints" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tracks">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Fingerprints">
-              <PropertyRef Name="TrackID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PlayedTracks_Stations">
-          <End Role="Stations" Type="Self.Stations" Multiplicity="1" />
-          <End Role="PlayedTracks" Type="Self.PlayedTracks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Stations">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PlayedTracks">
-              <PropertyRef Name="StationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PlayedTracks_Tracks">
-          <End Role="Tracks" Type="Self.Tracks" Multiplicity="1" />
-          <End Role="PlayedTracks" Type="Self.PlayedTracks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tracks">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PlayedTracks">
-              <PropertyRef Name="TrackID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Stations_Cities">
-          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
-          <End Role="Stations" Type="Self.Stations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cities">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Stations">
-              <PropertyRef Name="CityID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SubFingerprints_Tracks">
-          <End Role="Tracks" Type="Self.Tracks" Multiplicity="1" />
-          <End Role="SubFingerprints" Type="Self.SubFingerprints" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tracks">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="SubFingerprints">
-              <PropertyRef Name="TrackID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tmpPlayedTracks_Stations">
-          <End Role="Stations" Type="Self.Stations" Multiplicity="1" />
-          <End Role="tmpPlayedTracks" Type="Self.tmpPlayedTracks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Stations">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="tmpPlayedTracks">
-              <PropertyRef Name="StationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tmpPlayedTracks_TracksHashes">
-          <End Role="Tracks" Type="Self.Tracks" Multiplicity="0..1" />
-          <End Role="tmpPlayedTracks" Type="Self.tmpPlayedTracks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tracks">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="tmpPlayedTracks">
-              <PropertyRef Name="TrackID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tracks_Albums">
-          <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
-          <End Role="Tracks" Type="Self.Tracks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Albums">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Tracks">
-              <PropertyRef Name="AlbumID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tracks_Artists">
-          <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
-          <End Role="Tracks" Type="Self.Tracks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Artists">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Tracks">
-              <PropertyRef Name="ArtistID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tracks_Genres">
-          <End Role="Genres" Type="Self.Genres" Multiplicity="1" />
-          <End Role="Tracks" Type="Self.Tracks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Genres">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Tracks">
-              <PropertyRef Name="GenreID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="fpdataModelStoreContainer">
-          <EntitySet Name="Advertisers" EntityType="Self.Advertisers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Artists" EntityType="Self.Artists" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CepstralCoefficients" EntityType="Self.CepstralCoefficients" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="configs" EntityType="Self.configs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Fingerprints" EntityType="Self.Fingerprints" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PlayedTracks" EntityType="Self.PlayedTracks" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RecordsSeals" EntityType="Self.RecordsSeals" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Stations" EntityType="Self.Stations" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SubFingerprints" EntityType="Self.SubFingerprints" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tmpPlayedTracks" EntityType="Self.tmpPlayedTracks" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Tracks" EntityType="Self.Tracks" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Advertisers_Cities" Association="Self.FK_Advertisers_Cities">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Advertisers" EntitySet="Advertisers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CepstralCoefficients_Tracks" Association="Self.FK_CepstralCoefficients_Tracks">
-            <End Role="Tracks" EntitySet="Tracks" />
-            <End Role="CepstralCoefficients" EntitySet="CepstralCoefficients" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Clientes_Ciudades" Association="Self.FK_Clientes_Ciudades">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Clients" EntitySet="Clients" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Fingerprints_Tracks" Association="Self.FK_Fingerprints_Tracks">
-            <End Role="Tracks" EntitySet="Tracks" />
-            <End Role="Fingerprints" EntitySet="Fingerprints" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PlayedTracks_Stations" Association="Self.FK_PlayedTracks_Stations">
-            <End Role="Stations" EntitySet="Stations" />
-            <End Role="PlayedTracks" EntitySet="PlayedTracks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PlayedTracks_Tracks" Association="Self.FK_PlayedTracks_Tracks">
-            <End Role="Tracks" EntitySet="Tracks" />
-            <End Role="PlayedTracks" EntitySet="PlayedTracks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Stations_Cities" Association="Self.FK_Stations_Cities">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Stations" EntitySet="Stations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SubFingerprints_Tracks" Association="Self.FK_SubFingerprints_Tracks">
-            <End Role="Tracks" EntitySet="Tracks" />
-            <End Role="SubFingerprints" EntitySet="SubFingerprints" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tmpPlayedTracks_Stations" Association="Self.FK_tmpPlayedTracks_Stations">
-            <End Role="Stations" EntitySet="Stations" />
-            <End Role="tmpPlayedTracks" EntitySet="tmpPlayedTracks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tmpPlayedTracks_TracksHashes" Association="Self.FK_tmpPlayedTracks_TracksHashes">
-            <End Role="Tracks" EntitySet="Tracks" />
-            <End Role="tmpPlayedTracks" EntitySet="tmpPlayedTracks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tracks_Albums" Association="Self.FK_Tracks_Albums">
-            <End Role="Albums" EntitySet="Albums" />
-            <End Role="Tracks" EntitySet="Tracks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tracks_Artists" Association="Self.FK_Tracks_Artists">
-            <End Role="Artists" EntitySet="Artists" />
-            <End Role="Tracks" EntitySet="Tracks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tracks_Genres" Association="Self.FK_Tracks_Genres">
-            <End Role="Genres" EntitySet="Genres" />
-            <End Role="Tracks" EntitySet="Tracks" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="fpdataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="fpdataModelStoreContainer">
+    <EntitySet Name="Advertisers" EntityType="fpdataModel.Store.Advertisers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Albums" EntityType="fpdataModel.Store.Albums" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Artists" EntityType="fpdataModel.Store.Artists" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CepstralCoefficients" EntityType="fpdataModel.Store.CepstralCoefficients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cities" EntityType="fpdataModel.Store.Cities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clients" EntityType="fpdataModel.Store.Clients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Fingerprints" EntityType="fpdataModel.Store.Fingerprints" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Genres" EntityType="fpdataModel.Store.Genres" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlayedTracks" EntityType="fpdataModel.Store.PlayedTracks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RecordsSeals" EntityType="fpdataModel.Store.RecordsSeals" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stations" EntityType="fpdataModel.Store.Stations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubFingerprints" EntityType="fpdataModel.Store.SubFingerprints" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="fpdataModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tmpPlayedTracks" EntityType="fpdataModel.Store.tmpPlayedTracks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tracks" EntityType="fpdataModel.Store.Tracks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="fpdataModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="configs" EntityType="fpdataModel.Store.configs" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Advertisers_Cities" Association="fpdataModel.Store.FK_Advertisers_Cities">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Advertiser" EntitySet="Advertisers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tracks_Albums" Association="fpdataModel.Store.FK_Tracks_Albums">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Track" EntitySet="Tracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tracks_Artists" Association="fpdataModel.Store.FK_Tracks_Artists">
+      <End Role="Artist" EntitySet="Artists" />
+      <End Role="Track" EntitySet="Tracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CepstralCoefficients_Tracks" Association="fpdataModel.Store.FK_CepstralCoefficients_Tracks">
+      <End Role="Track" EntitySet="Tracks" />
+      <End Role="CepstralCoefficient" EntitySet="CepstralCoefficients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_Ciudades" Association="fpdataModel.Store.FK_Clientes_Ciudades">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stations_Cities" Association="fpdataModel.Store.FK_Stations_Cities">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Station" EntitySet="Stations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fingerprints_Tracks" Association="fpdataModel.Store.FK_Fingerprints_Tracks">
+      <End Role="Track" EntitySet="Tracks" />
+      <End Role="Fingerprint" EntitySet="Fingerprints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tracks_Genres" Association="fpdataModel.Store.FK_Tracks_Genres">
+      <End Role="Genre" EntitySet="Genres" />
+      <End Role="Track" EntitySet="Tracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayedTracks_Stations" Association="fpdataModel.Store.FK_PlayedTracks_Stations">
+      <End Role="Station" EntitySet="Stations" />
+      <End Role="PlayedTrack" EntitySet="PlayedTracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayedTracks_Tracks" Association="fpdataModel.Store.FK_PlayedTracks_Tracks">
+      <End Role="Track" EntitySet="Tracks" />
+      <End Role="PlayedTrack" EntitySet="PlayedTracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tmpPlayedTracks_Stations" Association="fpdataModel.Store.FK_tmpPlayedTracks_Stations">
+      <End Role="Station" EntitySet="Stations" />
+      <End Role="tmpPlayedTrack" EntitySet="tmpPlayedTracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubFingerprints_Tracks" Association="fpdataModel.Store.FK_SubFingerprints_Tracks">
+      <End Role="Track" EntitySet="Tracks" />
+      <End Role="SubFingerprint" EntitySet="SubFingerprints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tmpPlayedTracks_TracksHashes" Association="fpdataModel.Store.FK_tmpPlayedTracks_TracksHashes">
+      <End Role="Track" EntitySet="Tracks" />
+      <End Role="tmpPlayedTrack" EntitySet="tmpPlayedTracks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Advertisers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="75" />
+    <Property Name="Contract" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Address" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="Phones" Type="varchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Albums">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Year" Type="int" Nullable="true" />
+    <Property Name="SealID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Artists">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CepstralCoefficients">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c1" Type="float" Nullable="false" />
+    <Property Name="c2" Type="float" Nullable="false" />
+    <Property Name="c3" Type="float" Nullable="false" />
+    <Property Name="c4" Type="float" Nullable="false" />
+    <Property Name="c5" Type="float" Nullable="false" />
+    <Property Name="c6" Type="float" Nullable="false" />
+    <Property Name="c7" Type="float" Nullable="false" />
+    <Property Name="c8" Type="float" Nullable="false" />
+    <Property Name="c9" Type="float" Nullable="false" />
+    <Property Name="c10" Type="float" Nullable="false" />
+    <Property Name="c11" Type="float" Nullable="false" />
+    <Property Name="c12" Type="float" Nullable="false" />
+    <Property Name="TrackID" Type="int" Nullable="false" />
+    <Property Name="Position" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Contract" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Address" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="Phones" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="PublisherID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Fingerprints">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hash" Type="int" Nullable="true" />
+    <Property Name="TrackID" Type="int" Nullable="false" />
+    <Property Name="Position" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genres">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PlayedTracks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="TrackID" Type="int" Nullable="false" />
+    <Property Name="StationID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecordsSeals">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stations">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Frequency" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="SamplingTime" Type="int" Nullable="false" DefaultValue="5" />
+    <Property Name="RecordingDevice" Type="nchar" Nullable="false" DefaultValue="0" MaxLength="36" />
+    <Property Name="SourceLine" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="ChannelMode" Type="int" Nullable="false" DefaultValue="2" />
+    <Property Name="LeftChMute" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="RightChMute" Type="int" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <EntityType Name="SubFingerprints">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hash" Type="int" Nullable="true" />
+    <Property Name="TrackID" Type="int" Nullable="false" />
+    <Property Name="Position" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="tmpPlayedTracks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="TrackID" Type="int" Nullable="true" />
+    <Property Name="StationID" Type="int" Nullable="false" />
+    <Property Name="Score" Type="float" Nullable="false" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tracks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MediaType" Type="tinyint" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="ArtistID" Type="int" Nullable="false" />
+    <Property Name="AlbumID" Type="int" Nullable="false" />
+    <Property Name="GenreID" Type="int" Nullable="false" />
+    <Property Name="SealID" Type="int" Nullable="true" />
+    <Property Name="ClientID" Type="int" Nullable="true" />
+    <Property Name="Campaign" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="Version" Type="varchar" Nullable="true" MaxLength="75" />
+    <Property Name="FileName" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Priority" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="configs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fingerPrintsDirectory" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Advertisers_Cities">
+    <End Role="City" Type="fpdataModel.Store.Cities" Multiplicity="1" />
+    <End Role="Advertiser" Type="fpdataModel.Store.Advertisers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Advertiser">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tracks_Albums">
+    <End Role="Album" Type="fpdataModel.Store.Albums" Multiplicity="1" />
+    <End Role="Track" Type="fpdataModel.Store.Tracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="AlbumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tracks_Artists">
+    <End Role="Artist" Type="fpdataModel.Store.Artists" Multiplicity="1" />
+    <End Role="Track" Type="fpdataModel.Store.Tracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="ArtistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CepstralCoefficients_Tracks">
+    <End Role="Track" Type="fpdataModel.Store.Tracks" Multiplicity="1" />
+    <End Role="CepstralCoefficient" Type="fpdataModel.Store.CepstralCoefficients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CepstralCoefficient">
+        <PropertyRef Name="TrackID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_Ciudades">
+    <End Role="City" Type="fpdataModel.Store.Cities" Multiplicity="1" />
+    <End Role="Client" Type="fpdataModel.Store.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stations_Cities">
+    <End Role="City" Type="fpdataModel.Store.Cities" Multiplicity="1" />
+    <End Role="Station" Type="fpdataModel.Store.Stations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Station">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fingerprints_Tracks">
+    <End Role="Track" Type="fpdataModel.Store.Tracks" Multiplicity="1" />
+    <End Role="Fingerprint" Type="fpdataModel.Store.Fingerprints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Fingerprint">
+        <PropertyRef Name="TrackID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tracks_Genres">
+    <End Role="Genre" Type="fpdataModel.Store.Genres" Multiplicity="1" />
+    <End Role="Track" Type="fpdataModel.Store.Tracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="GenreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayedTracks_Stations">
+    <End Role="Station" Type="fpdataModel.Store.Stations" Multiplicity="1" />
+    <End Role="PlayedTrack" Type="fpdataModel.Store.PlayedTracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Station">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PlayedTrack">
+        <PropertyRef Name="StationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayedTracks_Tracks">
+    <End Role="Track" Type="fpdataModel.Store.Tracks" Multiplicity="1" />
+    <End Role="PlayedTrack" Type="fpdataModel.Store.PlayedTracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PlayedTrack">
+        <PropertyRef Name="TrackID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tmpPlayedTracks_Stations">
+    <End Role="Station" Type="fpdataModel.Store.Stations" Multiplicity="1" />
+    <End Role="tmpPlayedTrack" Type="fpdataModel.Store.tmpPlayedTracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Station">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tmpPlayedTrack">
+        <PropertyRef Name="StationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubFingerprints_Tracks">
+    <End Role="Track" Type="fpdataModel.Store.Tracks" Multiplicity="1" />
+    <End Role="SubFingerprint" Type="fpdataModel.Store.SubFingerprints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SubFingerprint">
+        <PropertyRef Name="TrackID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tmpPlayedTracks_TracksHashes">
+    <End Role="Track" Type="fpdataModel.Store.Tracks" Multiplicity="0..1" />
+    <End Role="tmpPlayedTrack" Type="fpdataModel.Store.tmpPlayedTracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tmpPlayedTrack">
+        <PropertyRef Name="TrackID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="fpdataModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
@@ -864,209 +864,208 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="fpdataModelStoreContainer" CdmEntityContainer="fpdataEntities">
-          <EntitySetMapping Name="Advertisers">
-            <EntityTypeMapping TypeName="fpdataModel.Advertiser">
-              <MappingFragment StoreEntitySet="Advertisers">
-                <ScalarProperty Name="Phones" ColumnName="Phones" />
-                <ScalarProperty Name="CityID" ColumnName="CityID" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Contract" ColumnName="Contract" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Albums">
-            <EntityTypeMapping TypeName="fpdataModel.Album">
-              <MappingFragment StoreEntitySet="Albums">
-                <ScalarProperty Name="SealID" ColumnName="SealID" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Artists">
-            <EntityTypeMapping TypeName="fpdataModel.Artist">
-              <MappingFragment StoreEntitySet="Artists">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CepstralCoefficients">
-            <EntityTypeMapping TypeName="fpdataModel.CepstralCoefficient">
-              <MappingFragment StoreEntitySet="CepstralCoefficients">
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
-                <ScalarProperty Name="c12" ColumnName="c12" />
-                <ScalarProperty Name="c11" ColumnName="c11" />
-                <ScalarProperty Name="c10" ColumnName="c10" />
-                <ScalarProperty Name="c9" ColumnName="c9" />
-                <ScalarProperty Name="c8" ColumnName="c8" />
-                <ScalarProperty Name="c7" ColumnName="c7" />
-                <ScalarProperty Name="c6" ColumnName="c6" />
-                <ScalarProperty Name="c5" ColumnName="c5" />
-                <ScalarProperty Name="c4" ColumnName="c4" />
-                <ScalarProperty Name="c3" ColumnName="c3" />
-                <ScalarProperty Name="c2" ColumnName="c2" />
-                <ScalarProperty Name="c1" ColumnName="c1" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Cities">
-            <EntityTypeMapping TypeName="fpdataModel.City">
-              <MappingFragment StoreEntitySet="Cities">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Clients">
-            <EntityTypeMapping TypeName="fpdataModel.Client">
-              <MappingFragment StoreEntitySet="Clients">
-                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Phones" ColumnName="Phones" />
-                <ScalarProperty Name="CityID" ColumnName="CityID" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Contract" ColumnName="Contract" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Fingerprints">
-            <EntityTypeMapping TypeName="fpdataModel.Fingerprint">
-              <MappingFragment StoreEntitySet="Fingerprints">
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
-                <ScalarProperty Name="Hash" ColumnName="Hash" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Genres">
-            <EntityTypeMapping TypeName="fpdataModel.Genre">
-              <MappingFragment StoreEntitySet="Genres">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PlayedTracks">
-            <EntityTypeMapping TypeName="fpdataModel.PlayedTrack">
-              <MappingFragment StoreEntitySet="PlayedTracks">
-                <ScalarProperty Name="StationID" ColumnName="StationID" />
-                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
-                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RecordsSeals">
-            <EntityTypeMapping TypeName="fpdataModel.RecordsSeal">
-              <MappingFragment StoreEntitySet="RecordsSeals">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Stations">
-            <EntityTypeMapping TypeName="fpdataModel.Station">
-              <MappingFragment StoreEntitySet="Stations">
-                <ScalarProperty Name="RightChMute" ColumnName="RightChMute" />
-                <ScalarProperty Name="LeftChMute" ColumnName="LeftChMute" />
-                <ScalarProperty Name="ChannelMode" ColumnName="ChannelMode" />
-                <ScalarProperty Name="SourceLine" ColumnName="SourceLine" />
-                <ScalarProperty Name="RecordingDevice" ColumnName="RecordingDevice" />
-                <ScalarProperty Name="SamplingTime" ColumnName="SamplingTime" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="CityID" ColumnName="CityID" />
-                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SubFingerprints">
-            <EntityTypeMapping TypeName="fpdataModel.SubFingerprint">
-              <MappingFragment StoreEntitySet="SubFingerprints">
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
-                <ScalarProperty Name="Hash" ColumnName="Hash" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="fpdataModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tmpPlayedTracks">
-            <EntityTypeMapping TypeName="fpdataModel.tmpPlayedTrack">
-              <MappingFragment StoreEntitySet="tmpPlayedTracks">
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
-                <ScalarProperty Name="StationID" ColumnName="StationID" />
-                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
-                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tracks">
-            <EntityTypeMapping TypeName="fpdataModel.Track">
-              <MappingFragment StoreEntitySet="Tracks">
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="Campaign" ColumnName="Campaign" />
-                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
-                <ScalarProperty Name="SealID" ColumnName="SealID" />
-                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
-                <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
-                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="MediaType" ColumnName="MediaType" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="fpdataModel.User">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="configs">
-            <EntityTypeMapping TypeName="fpdataModel.config">
-              <MappingFragment StoreEntitySet="configs">
-                <ScalarProperty Name="fingerPrintsDirectory" ColumnName="fingerPrintsDirectory" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fpdataModelStoreContainer" CdmEntityContainer="fpdataEntities">
+    <EntitySetMapping Name="Advertisers">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.Advertiser)">
+        <MappingFragment StoreEntitySet="Advertisers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Contract" ColumnName="Contract" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="Phones" ColumnName="Phones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.Album)">
+        <MappingFragment StoreEntitySet="Albums">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="SealID" ColumnName="SealID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.Artist)">
+        <MappingFragment StoreEntitySet="Artists">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CepstralCoefficients">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.CepstralCoefficient)">
+        <MappingFragment StoreEntitySet="CepstralCoefficients">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="c1" ColumnName="c1" />
+          <ScalarProperty Name="c2" ColumnName="c2" />
+          <ScalarProperty Name="c3" ColumnName="c3" />
+          <ScalarProperty Name="c4" ColumnName="c4" />
+          <ScalarProperty Name="c5" ColumnName="c5" />
+          <ScalarProperty Name="c6" ColumnName="c6" />
+          <ScalarProperty Name="c7" ColumnName="c7" />
+          <ScalarProperty Name="c8" ColumnName="c8" />
+          <ScalarProperty Name="c9" ColumnName="c9" />
+          <ScalarProperty Name="c10" ColumnName="c10" />
+          <ScalarProperty Name="c11" ColumnName="c11" />
+          <ScalarProperty Name="c12" ColumnName="c12" />
+          <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.City)">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.Client)">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Contract" ColumnName="Contract" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="Phones" ColumnName="Phones" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fingerprints">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.Fingerprint)">
+        <MappingFragment StoreEntitySet="Fingerprints">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Hash" ColumnName="Hash" />
+          <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.Genre)">
+        <MappingFragment StoreEntitySet="Genres">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlayedTracks">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.PlayedTrack)">
+        <MappingFragment StoreEntitySet="PlayedTracks">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+          <ScalarProperty Name="StationID" ColumnName="StationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecordsSeals">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.RecordsSeal)">
+        <MappingFragment StoreEntitySet="RecordsSeals">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stations">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.Station)">
+        <MappingFragment StoreEntitySet="Stations">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="SamplingTime" ColumnName="SamplingTime" />
+          <ScalarProperty Name="RecordingDevice" ColumnName="RecordingDevice" />
+          <ScalarProperty Name="SourceLine" ColumnName="SourceLine" />
+          <ScalarProperty Name="ChannelMode" ColumnName="ChannelMode" />
+          <ScalarProperty Name="LeftChMute" ColumnName="LeftChMute" />
+          <ScalarProperty Name="RightChMute" ColumnName="RightChMute" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubFingerprints">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.SubFingerprint)">
+        <MappingFragment StoreEntitySet="SubFingerprints">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Hash" ColumnName="Hash" />
+          <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.sysdiagram)">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tmpPlayedTracks">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.tmpPlayedTrack)">
+        <MappingFragment StoreEntitySet="tmpPlayedTracks">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+          <ScalarProperty Name="StationID" ColumnName="StationID" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tracks">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.Track)">
+        <MappingFragment StoreEntitySet="Tracks">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+          <ScalarProperty Name="SealID" ColumnName="SealID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="Campaign" ColumnName="Campaign" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="configs">
+      <EntityTypeMapping TypeName="IsTypeOf(fpdataModel.config)">
+        <MappingFragment StoreEntitySet="configs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fingerPrintsDirectory" ColumnName="fingerPrintsDirectory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">

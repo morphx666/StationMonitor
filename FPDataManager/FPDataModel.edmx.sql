@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/03/2014 06:58:40
--- Generated from EDMX file: E:\Documents\Visual Studio 2013\Projects\StationMonitor\FPDataManager\FPDataModel.edmx
+-- Date Created: 11/07/2018 10:32:22
+-- Generated from EDMX file: D:\Projects\StationMonitor\FPDataManager\FPDataModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -79,8 +79,8 @@ GO
 IF OBJECT_ID(N'[dbo].[Clients]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Clients];
 GO
-IF OBJECT_ID(N'[dbo].[config]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[config];
+IF OBJECT_ID(N'[dbo].[configs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[configs];
 GO
 IF OBJECT_ID(N'[dbo].[Fingerprints]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Fingerprints];
@@ -184,13 +184,6 @@ CREATE TABLE [dbo].[Clients] (
 );
 GO
 
--- Creating table 'configs'
-CREATE TABLE [dbo].[configs] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [fingerPrintsDirectory] nvarchar(max)  NOT NULL
-);
-GO
-
 -- Creating table 'Fingerprints'
 CREATE TABLE [dbo].[Fingerprints] (
     [ID] int IDENTITY(1,1) NOT NULL,
@@ -231,7 +224,6 @@ CREATE TABLE [dbo].[Stations] (
     [Name] varchar(50)  NOT NULL,
     [Frequency] varchar(50)  NOT NULL,
     [CityID] int  NOT NULL,
-    [Genre] varchar(50)  NOT NULL,
     [Type] tinyint  NOT NULL,
     [SamplingTime] int  NOT NULL,
     [RecordingDevice] nchar(36)  NOT NULL,
@@ -299,6 +291,13 @@ CREATE TABLE [dbo].[Users] (
 );
 GO
 
+-- Creating table 'configs'
+CREATE TABLE [dbo].[configs] (
+    [id] int IDENTITY(1,1) NOT NULL,
+    [fingerPrintsDirectory] nvarchar(max)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -337,12 +336,6 @@ GO
 ALTER TABLE [dbo].[Clients]
 ADD CONSTRAINT [PK_Clients]
     PRIMARY KEY CLUSTERED ([ID] ASC);
-GO
-
--- Creating primary key on [id] in table 'configs'
-ALTER TABLE [dbo].[configs]
-ADD CONSTRAINT [PK_configs]
-    PRIMARY KEY CLUSTERED ([id] ASC);
 GO
 
 -- Creating primary key on [ID] in table 'Fingerprints'
@@ -403,6 +396,12 @@ GO
 ALTER TABLE [dbo].[Users]
 ADD CONSTRAINT [PK_Users]
     PRIMARY KEY CLUSTERED ([UserID] ASC);
+GO
+
+-- Creating primary key on [id] in table 'configs'
+ALTER TABLE [dbo].[configs]
+ADD CONSTRAINT [PK_configs]
+    PRIMARY KEY CLUSTERED ([id] ASC);
 GO
 
 -- --------------------------------------------------
