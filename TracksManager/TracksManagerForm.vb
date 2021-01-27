@@ -487,7 +487,7 @@ Public Class TracksManagerForm
                 .AutoCompleteMode = AutoCompleteMode.SuggestAppend
                 .AutoCompleteSource = AutoCompleteSource.ListItems
 
-                AddHandler .Validating, Sub(sender1 As Object, e1 As System.ComponentModel.CancelEventArgs)
+                AddHandler .Validating, Sub(sender1 As Object, e1 As ComponentModel.CancelEventArgs)
                                             Dim cmb = CType(e.Control, ComboBox)
                                             Dim value As String = cmb.Text
 
@@ -522,8 +522,8 @@ Public Class TracksManagerForm
 
     Private Sub UpdateQueuedTracksLabel()
         Dim label = "{0} Tracks Queued"
-        Dim validItems As Integer = (From item As ListViewItem In LvFiles.CheckedItems Where item.ForeColor = LvFiles.ForeColor Select item).Count
-        Dim failedItems As Integer = (From item As ListViewItem In LvFiles.Items Where item.ForeColor = Color.Red Select item).Count
+        Dim validItems As Integer = (From item As ListViewItem In LvFiles.CheckedItems Where item.ForeColor = LvFiles.ForeColor Select item).Count()
+        Dim failedItems As Integer = (From item As ListViewItem In LvFiles.Items Where item.ForeColor = Color.Red Select item).Count()
 
         If failedItems > 0 Then label += " / {1} Failed"
 
