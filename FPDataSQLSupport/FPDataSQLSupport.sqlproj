@@ -26,7 +26,7 @@
     <OutputType>Database</OutputType>
     <MyType>Empty</MyType>
     <AssemblyName>FPDataSQLSupport</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <ConnectionString>
@@ -50,7 +50,7 @@
     <FileUpgradeFlags>40</FileUpgradeFlags>
     <UpgradeBackupLocation>E:\Documents\Visual Studio 2012\Projects\StationMonitor\TracksManager\Backup\FPDataSQLSupport\</UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
     <Name>FPDataSQLSupport</Name>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{6feec155-0a71-43a9-b831-e8afc5ac9bb3}</ProjectGuid>

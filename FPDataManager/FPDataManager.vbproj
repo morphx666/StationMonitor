@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -13,7 +13,7 @@
     <AssemblyName>FPDataManager</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -117,6 +117,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -193,6 +194,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FPDataModel.edmx.sql" />
+    <None Include="SQL Scripts\Average Fingerprints Per Track.sql" />
+    <None Include="SQL Scripts\CapturedHashes DataType Definition.sql" />
+    <None Include="SQL Scripts\Count Fingerprints Sizes %28NumOfHashes%29.sql" />
+    <None Include="SQL Scripts\Delete PlayedTracks.sql" />
+    <None Include="SQL Scripts\FindSimilarHashes.sql" />
+    <None Include="SQL Scripts\GetLast10PlayedTracks.sql" />
+    <None Include="SQL Scripts\LEVENSHTEIN.sql" />
+    <None Include="SQL Scripts\Reset fpdata DB.sql" />
+    <None Include="SQL Scripts\Test FindSimilarHashes.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
