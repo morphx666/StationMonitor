@@ -122,7 +122,7 @@ Public Class HashLib
 
         If mDXVUCtrl IsNot Nothing Then
             With mDXVUCtrl
-                .LicenseControl("00000000000000000000000000000000", "FingerPrinting")
+                .LicenseControl("0982EA84A607E408C691BCA5FA175AC3", "FingerPrinting")
 
                 .Style = StyleConstants.FFT
 

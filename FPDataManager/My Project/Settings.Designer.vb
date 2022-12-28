@@ -53,6 +53,17 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=XAVIER-DESKTOP\SQLEXPRESS;Initial Catalog=fpData;Integrated Security="& _ 
+            "True")>  _
+        Public ReadOnly Property fpDataConnectionString() As String
+            Get
+                Return CType(Me("fpDataConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

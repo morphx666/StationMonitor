@@ -26,7 +26,7 @@
     <OutputType>Database</OutputType>
     <MyType>Empty</MyType>
     <AssemblyName>FPDataSQLSupport</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <ConnectionString>

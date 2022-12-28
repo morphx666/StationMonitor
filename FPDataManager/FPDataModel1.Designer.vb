@@ -17,7 +17,7 @@ Imports System.Linq
 Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
-<Assembly: EdmSchemaAttribute("5182d1e6-1098-4017-9d1f-bbf65b71de49")>
+<Assembly: EdmSchemaAttribute("adf93634-ffa5-43a2-bffb-5b7abecd3d4b")>
 #Region "EDM Relationship Metadata"
 <Assembly: EdmRelationshipAttribute("fpdataModel", "FK_Advertisers_Cities", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(City), "Advertiser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Advertiser), True)>
 <Assembly: EdmRelationshipAttribute("fpdataModel", "FK_Tracks_Albums", "Album", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(Album), "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Track), True)>
